@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whalas Catálogo de Productos</title>
+    <link rel="stylesheet" href="catalogo.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="ima/logo.png" alt="Logo" style="height: 80px;">
+        </div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#sobre-nosotros">Sobre Nosotros</a>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Buscar..." oninput="buscarProducto()">
+            <img src="ima/bus.png" alt="Buscar" onclick="toggleSearch()">
+        </div>
+        <div class="carrito" onclick="abrirModal()">
+            <img src="ima/car3.png" alt="Carrito de compras">
+            <h2 id="carrito-total"></h2>
+        </div>
+    </div>
+		<div class="hero">
+        <img src="ima/ima11.png" alt="Ballenas">
+        <div class="hero-text">
+            <h1>50% SOLO POR HOY!</h1>
+            <p>disfruta de nuestros grandes productos</p>
+        </div>
+    </div>
+    <div class="encabezado">
+        <div class="ordenar">
+            <h2>Ordenar Por:</h2>
+            <div class="ordenar-content">
+                <p onclick="ordenarCatalogo('az')">Nombre A-Z</p>
+                <p onclick="ordenarCatalogo('za')">Nombre Z-A</p>
+                <p onclick="ordenarCatalogo('precio-asc')">Precio Menor-Mayor</p>
+                <p onclick="ordenarCatalogo('precio-desc')">Precio Mayor-Menor</p>
+            </div>
+        </div>
+        <div class="cantidad-productos">
+            <h2 id="total-productos"></h2>
+        </div>
+    </div>
+
+    <div id="catalogo"></div>
+
+    <div class="modal" id="carrito-modal">
+        <div class="modal-header">
+            <h2 class="carrito-titulo">Carrito de Compras</h2>
+            <span class="modal-close" onclick="cerrarModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div id="carrito-productos"></div>
+            <h2 id="carrito-vacio" class="carrito-vacio">El carrito está vacío</h2>
+            <div class="subtotal-container">
+                <h3 class="subtotal-title">Subtotal:</h3>
+                <h3 class="subtotal-amount" id="subtotal"></h3>
+            </div>
+            <button class="pagar-todo" onclick="pagar()">Pagar Todo</button>
+        </div>
+    </div>
+    <script src="catalogo.js"></script>
+</body>
+</html>
