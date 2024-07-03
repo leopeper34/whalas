@@ -241,8 +241,12 @@ slide-text3, slide-text2, slide-text {
   text-align: center; /* Añadido para centrar el texto */
 }
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(calc(-200px * 7));
+  }
 }
 
 @media screen and (max-width: 768px) {
