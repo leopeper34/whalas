@@ -125,9 +125,10 @@ function toggleSearch() {
     }
 }
 
+function toggleOrdenarMenu() {
+    const ordenarContent = document.getElementById('ordenar-content');
+    ordenarContent.classList.toggle('active');
+}
+
 mostrarCatalogo();
 actualizarCarrito();
-function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.classList.toggle('active');
-  }

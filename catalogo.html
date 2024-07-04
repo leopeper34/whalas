@@ -99,10 +99,10 @@
         </div>
     </div>
     
-    <div class="encabezado">    
-        <div class="ordenar">
-            <h2>Ordenar Por:</h2> 
-            <div class="ordenar-content" onclick="ordenarCatalogo()">
+    <div class="encabezado">
+        <div class="ordenar" onclick="toggleOrdenarMenu()">
+            <h2>Ordenar Por:</h2>
+            <div id="ordenar-content" class="ordenar-content">
                 <p onclick="ordenarCatalogo('az')">Nombre A-Z</p>
                 <p onclick="ordenarCatalogo('za')">Nombre Z-A</p>
                 <p onclick="ordenarCatalogo('precio-asc')">Precio Menor-Mayor</p>
@@ -113,6 +113,7 @@
             <h2 id="total-productos"></h2>
         </div>
     </div>
+    
 
     <div id="catalogo"></div>
 

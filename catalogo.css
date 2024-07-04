@@ -230,39 +230,40 @@ body {
   margin: 0;
   font-size: 1rem;
 }
+/* Estilo para ocultar el submenú por defecto */
 .ordenar-content {
   display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  text-align: left;
 }
-.ordenar-content p {
-  padding: 12px 16px;
-  margin: 0;
-  font-size: 1rem;
-  color: #333;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.ordenar-content p:hover {
-  background-color: #f1f1f1;
-}
-.ordenar:hover .ordenar-content {
+
+.ordenar-content.active {
   display: block;
 }
+
+.ordenar-content p {
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #0E1B4D;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.ordenar-content p:hover {
+  background-color: #000;
+}
+
 @media (max-width: 480px) {
   .ordenar-content p {
-    padding: 15px; /* Aumenta el padding para áreas de clic más grandes en móviles */
-    font-size: 1rem; /* Aumenta el tamaño del texto para mejor legibilidad en móviles */
+      padding: 15px;
+      font-size: 1rem;
   }
 
   .ordenar h2 {
-    font-size: 1rem; /* Ajusta el tamaño del texto del encabezado en móviles */
+      font-size: 1rem;
   }
 }
+
+
 #catalogo {
   display: flex;
   flex-wrap: wrap;
