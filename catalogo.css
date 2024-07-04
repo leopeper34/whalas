@@ -256,11 +256,11 @@ body {
 @media (max-width: 480px) {
   .ordenar-content p {
     padding: 15px; /* Aumenta el padding para áreas de clic más grandes en móviles */
-    font-size: 1.2rem; /* Aumenta el tamaño del texto para mejor legibilidad en móviles */
+    font-size: 1rem; /* Aumenta el tamaño del texto para mejor legibilidad en móviles */
   }
 
   .ordenar h2 {
-    font-size: 1.5rem; /* Ajusta el tamaño del texto del encabezado en móviles */
+    font-size: 1rem; /* Ajusta el tamaño del texto del encabezado en móviles */
   }
 }
 #catalogo {
