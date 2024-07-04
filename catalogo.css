@@ -459,43 +459,44 @@ body {
 /* Media Queries para hacer responsive */
 @media (max-width: 480px) {
   .producto {
-    flex: 1 1 100%;
-    max-width: 100%;
-    padding: 15px;
-    margin: 10px 5;
+    flex: 1 1 100%; /* Aumenta el tamaño a 100% del contenedor */
+    max-width: 100%; /* Aumenta el tamaño a 100% del contenedor */
+    padding: 20px; /* Ajusta el padding si es necesario */
+    margin: 10px 0; /* Ajusta el margen si es necesario */
   }
 
   .producto h2, .producto p {
-    font-size: 1rem;
+    font-size: 1rem; /* Aumenta el tamaño de fuente */
   }
 
   .producto button {
-    font-size: 1rem;
-    padding: 10px 0;
+    font-size: .8rem; /* Ajusta el tamaño de fuente del botón */
+    padding: 12px 0; /* Ajusta el padding del botón */
   }
 
   .modal {
-    width: 100%;
+    width: 100%; /* Asegura que la modal ocupe el 100% del ancho */
   }
 }
 
 @media (max-width: 768px) {
   .producto {
-    flex: 1 1 30%;
-    max-width: 30%;
+    flex: 1 1 45%; /* Aumenta el tamaño a 45% del contenedor */
+    max-width: 45%; /* Aumenta el tamaño a 45% del contenedor */
   }
 
   .modal {
-    width: 75%;
+    width: 75%; /* Asegura que la modal ocupe el 75% del ancho */
   }
 }
 
 @media (min-width: 769px) {
   .producto {
-    flex: 1 1 22%;
-    max-width: 23%;
+    flex: 1 1 22%; /* Mantiene el tamaño actual */
+    max-width: 23%; /* Mantiene el tamaño actual */
   }
 }
+
 
 
 /* Sección del slider */
@@ -527,5 +528,109 @@ slide-text3, slide-text2, slide-text {
   }
   100% {
       transform: translateX(calc(-200px * 7));
+  }
+}
+/**************
+   FOOTER
+**************/
+.footer {
+  background-color: #0E1B4D;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-menu li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.footer-menu a {
+  text-decoration: none;
+  color: #EFF0F5;
+}
+
+.payment-methods {
+  margin-top: 20px;
+}
+
+.footer-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #EFF0F5;
+}
+
+/* Estilos responsive */
+@media screen and (max-width: 768px) {
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .product-slider {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-image,
+  .product-image img {
+    height: auto;
+  }
+
+  .product-images {
+    position: static;
+    margin-top: 10px;
+  }
+
+  .product-thumb {
+    width: 60px;
+    height: 60px;
+  }
+
+  .product-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-info h2 {
+    font-size: 20px;
+  }
+
+  .price-container {
+    gap: 5px;
+  }
+
+  .product-info .old-price,
+  .product-info .price {
+    font-size: 18px;
+  }
+
+  .product-info p {
+    text-align: center;
+  }
+
+  .add-to-cart {
+    padding: 10px 20px;
+  }
+
+  /* Estilos específicos para el footer en dispositivos móviles */
+  .footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-menu li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .footer-menu a {
+    text-align: left;
   }
 }
