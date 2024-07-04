@@ -129,6 +129,9 @@ function toggleOrdenarMenu() {
     const ordenarContent = document.getElementById('ordenar-content');
     ordenarContent.classList.toggle('active');
 }
-
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+    }
 mostrarCatalogo();
 actualizarCarrito();
