@@ -685,54 +685,70 @@ button.next {
 /* Estilos responsive */
 @media screen and (max-width: 768px) {
   .product-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
 
   .product-slider {
-      width: 100%;
-      height: auto;
+    width: 100%;
+    height: auto;
   }
 
   .product-image,
   .product-image img {
-      height: auto;
+    height: auto;
   }
 
   .product-images {
-      position: static;
-      margin-top: 10px;
+    position: static;
+    margin-top: 10px;
   }
 
   .product-thumb {
-      width: 60px;
-      height: 60px;
+    width: 60px;
+    height: 60px;
   }
 
   .product-info {
-      align-items: center;
-      text-align: center;
+    align-items: center;
+    text-align: center;
   }
 
   .product-info h2 {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .price-container {
-      gap: 5px;
+    gap: 5px;
   }
 
   .product-info .old-price,
   .product-info .price {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   .product-info p {
-      text-align: center;
+    text-align: center;
   }
 
   .add-to-cart {
-      padding: 10px 20px;
+    padding: 10px 20px;
+  }
+
+  /* Estilos específicos para el footer en dispositivos móviles */
+  .footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-menu li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .footer-menu a {
+    text-align: left;
   }
 }
