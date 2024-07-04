@@ -27,6 +27,7 @@ body {
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  border-radius: 2%;
 }
 
 .navbar .menu a {
@@ -271,10 +272,11 @@ slide-text3, slide-text2, slide-text {
   height: auto;
   border-radius: 25px;
   object-fit: cover;
+  align-content: center;
 }
 
 .container .content {
-  text-align: left;
+  text-align: center;
 }
 .button {
   display: inline-block;
