@@ -6,6 +6,7 @@ body {
     background-color: #EFF0F5;
     color: #0E1B4D;
 /* Barra de navegación */
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -218,69 +219,88 @@ body {
 
 }
 
+/* Estilos generales */
+body {
+  font-family: 'Questrial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #EFF0F5;
+  color: #0E1B4D;
+}
+
 .accordion {
-    width: 800px; /* ancho del acordeón aumentado */
-    margin: 20px auto;
+  width: 100%; /* ancho del acordeón al 100% del contenedor */
+  max-width: 800px; /* ancho máximo para pantallas grandes */
+  margin: 20px auto;
 }
 
 .accordion-item {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
 .accordion-header {
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #ccc;
-    cursor: pointer;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
 }
 
 .accordion-button {
-    width: 100%;
-    text-align: left;
-    padding: 10px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .accordion-button span {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .accordion-button i {
-    float: right;
-    margin-left: 10px;
-    transition: transform 0.3s ease-in-out;
+  float: right;
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .accordion-button[aria-expanded="true"] i {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .accordion-content {
-    padding: 10px;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
-    display: none;
-    text-align: justify;
-    text-align-last: center;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  display: none;
+  text-align: justify;
+  text-align-last: center;
 }
 
 .accordion-item.active .accordion-content {
-    display: block;
+  display: block;
 }
 
 .float-right {
-    float: right;
+  float: right;
 }
 
 /* Añade estilo para los párrafos dentro del acordeón */
 .accordion-content p {
-    text-align: justify;
-    margin: 1em 0;
+  text-align: justify;
+  margin: 1em 0;
 }
+
+/* Media query para pantallas móviles */
+@media (max-width: 600px) {
+  .accordion {
+      width: 90%; /* ancho del acordeón al 90% del contenedor */
+      margin: 20px auto;
+  }
+}
+
 /* Sección del slider */
 .slider, .slider2, .slider3 {
     width: 100vw; /* Ajusta el ancho al 100% de la vista */
