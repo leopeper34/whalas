@@ -1,0 +1,339 @@
+body {
+    font-family: questrial;
+    background-color: #EFF0F5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 40px 20px; /* Añadir padding al contenedor principal */
+}
+
+.product-info {
+    width: 50%;
+    padding: 40px; /* Aumentar el padding para más espacio interno */
+    margin-right: 20px; /* Añadir espacio entre secciones */
+}
+
+.product-slider {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin-bottom: 40px; /* Añadir margen inferior para más espacio */
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-images {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.product-thumb {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.product-thumb.active {
+    opacity: 1;
+}
+
+.product-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-top: 20px; /* Añadir margen superior para más espacio */
+}
+
+.product-price {
+    font-size: 1.6em;
+    color: #333;
+    margin-top: 60px; /* Añadir margen superior para más espacio */
+}
+
+.product-size {
+    margin-top: 60px; /* Aumentar margen superior */
+}
+
+#size-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.size-button {
+    background-color: #0E1B4D;
+    color: #EFF0F5;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.size-button:hover,
+.size-button.active {
+    background-color: #000;
+}
+
+.product-add-to-cart {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Aumentar el espacio entre los elementos */
+    margin-top: 40px; /* Aumentar margen superior */
+}
+
+.product-quantity {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px; /* Aumentar margen superior */
+}
+
+.product-quantity label {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.quantity-button {
+    position: relative;
+    background-color: #0E1B4D;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center; /* Centrar el contenido horizontalmente */
+    align-items: center; /* Centrar el contenido verticalmente */
+    width: 100px;
+    color: #EFF0F5;
+}
+
+.quantity {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.plus, .minus {
+    font-size: 1.5em;
+    position: absolute;
+}
+
+.minus {
+    left: 10px;
+}
+
+.plus {
+    right: 10px;
+}
+
+.product-button {
+    background-color: #0E1B4D;
+    color: #EFF0F5;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.product-button:hover {
+    background-color: #000000;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    color: #EFF0F5;
+}
+
+.accordion {
+    margin: 30px 0; /* Espacio considerable entre los acordeones */
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto; /* Centrar el acordeón horizontalmente */
+    margin-right: auto; /* Centrar el acordeón horizontalmente */
+}
+
+.accordion-item {
+    margin-bottom: 20px; /* Espacio entre los elementos individuales del acordeón */
+}
+
+.accordion-button {
+    background-color: #0E1B4D;
+    color: #EFF0F5;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.accordion-button:hover {
+    background-color: #000;
+}
+
+.accordion-content {
+    padding: 10px;
+    border: 1px solid #ddd;
+    display: none;
+    text-align: center; /* Centrar el contenido */
+}
+
+.accordion-button.active + .accordion-content {
+    display: block;
+}
+
+/* Nueva sección */
+.new-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.payment-icons img {
+    width: 200px;
+    height: 20px;
+}
+
+.new-section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.new-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.new-section p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.video-container {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.video-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Estilos para la vista ampliada */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    margin: 10% auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal-content img {
+    width: 100%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Media queries para pantallas móviles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px; /* Reducir padding en pantallas móviles */
+    }
+
+    .product-info {
+        width: 100%;
+        padding: 20px; /* Reducir padding para más espacio interno */
+        margin-right: 0; /* Eliminar espacio entre secciones */
+        margin-bottom: 20px; /* Añadir margen inferior para más espacio */
+    }
+
+    .product-slider {
+        width: 100%;
+        height: auto; /* Ajustar altura automáticamente */
+        margin-bottom: 20px; /* Añadir margen inferior para más espacio */
+    }
+
+    .product-title {
+        font-size: 2em; /* Reducir tamaño de fuente en pantallas móviles */
+    }
+
+    .product-price {
+        font-size: 1.4em; /* Reducir tamaño de fuente en pantallas móviles */
+        margin-top: 20px; /* Reducir margen superior */
+    }
+
+    .product-size {
+        margin-top: 20px; /* Reducir margen superior */
+    }
+
+    .product-add-to-cart {
+        margin-top: 20px; /* Reducir margen superior */
+    }
+    
+    .new-section {
+        padding: 10px; /* Reducir padding para más espacio */
+    }
+
+    .new-section h2 {
+        font-size: 1.5em; /* Reducir tamaño de fuente en pantallas móviles */
+    }
+
+    .new-section h3 {
+        font-size: 1.2em; /* Reducir tamaño de fuente en pantallas móviles */
+    }
+}

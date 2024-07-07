@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pijama De Ballena™</title>
+  <link rel="stylesheet" href="whalas.css">
+</head>
+<body>
+  <div class="container">
+    <div class="product-slider">
+      <div class="product-image" id="product-image">
+        <img src="product-1.jpg" alt="Pijama de Ballena">
+      </div>
+      <div class="product-images">
+        <img src="ima/ba.png" alt="Pijama de Ballena" class="product-thumb active">
+        <img src="ima/ima1 (2).png" alt="Pijama de Ballena" class="product-thumb">
+        <img src="ima/ima5.png" alt="Pijama de Ballena" class="product-thumb">
+        <img src="ima/ima3.png" alt="Pijama de Ballena" class="product-thumb">
+      </div>
+    </div>
+
+    <!-- Modal for enlarged image view -->
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <div class="modal-content">
+        <img id="img01" src="" alt="Product Image">
+      </div>
+    </div>
+
+    <div class="product-info">
+      <h2 class="product-title">Pijama De Ballena™</h2>
+      <p class="product-price">$42.98</p>
+      <div class="product-size">
+        <label for="size">Tamaño:</label>
+        <div id="size-buttons">
+          <button class="size-button" data-size="XL">XL</button>
+          <button class="size-button" data-size="L">L</button>
+          <button class="size-button" data-size="M">M</button>
+          <button class="size-button" data-size="S">S</button>
+        </div>
+      </div>
+      <div class="product-add-to-cart">
+        <div class="product-quantity">
+          <label for="quantity-button">Cantidad:</label>
+          <button class="quantity-button" id="quantity-button">
+            <span class="minus">-</span>
+            <span class="quantity">1</span>
+            <span class="plus">+</span>
+          </button>
+        </div>
+        <button class="product-button">AGREGAR AL CARRO</button>
+      </div>
+      <div class="accordion">
+        <button class="accordion-button">GARANTIZAR</button>
+        <div class="accordion-content">
+          <p>Garantizar Pijama De Ballena ™</p>
+          <img src="https://i.imgur.com/h9m8H5L.png" alt="Guarantee icon">
+        </div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-button">ENVÍO RASTREADO</button>
+        <div class="accordion-content">
+          <p>Envío rastreado</p>
+          <img src="https://i.imgur.com/F1eZ7kS.png" alt="Shipping icon">
+        </div>
+      </div>
+      <!-- Nueva sección -->
+      <div class="new-section">
+        <div class="payment-icons">
+          <img src="ima/pay.png" alt="Visa">
+        </div>
+        <h2>Whale Blankie™</h2>
+        <h3>A Worldwide Sensation!</h3>
+        <p>
+          Our <strong>trendy</strong> blanket is adored by people <strong>worldwide!</strong> Its unparalleled comfort, crafted with luxurious flannel fabric, and adorned with a <strong>super cute</strong> whale design, has captured the hearts of <strong>everyone.</strong>
+        </p>
+        <div class="video-container">
+          <img src="ima/1208_1_150x.gif" alt="Whale Blankie Video">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="whalas.js"></script>
+</body>
+</html>
