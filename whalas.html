@@ -5,6 +5,92 @@
   <link rel="stylesheet" href="whalas.css">
 </head>
 <body>
+  
+  <div class="slider">
+    <div class="slide-track">
+        <div class="slide">
+            <p class="slide-text">🐳Whalas™🐳</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">25% este verano!</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">🐳Whalas™🐳</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">25% este verano!</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">🐳Whalas™🐳</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">25% este verano!</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">🐳Whalas™🐳</p>
+        </div>
+
+        <div class="slide">
+            <p class="slide-text">25% este verano!</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">🐳Whalas™🐳</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">25% este verano!</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">🐳Whalas™🐳</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">25% este verano!</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">🐳Whalas™🐳</p>
+        </div>
+        <div class="slide">
+            <p class="slide-text">25% este verano!</p>
+        </div>
+    </div>
+  </div>
+  
+  <div class="navbar">
+    <div class="menu-icon" onclick="toggleMenu()">
+        <img src="ima/barra-de-menu.png" alt="Menu Icon">
+    </div>
+    <div class="logo">
+        <a href="index.html">
+            <img src="ima/logo.png" alt="Logo" style="height: 80px;">
+        </a>
+    </div>
+    
+    <div class="menu" id="menu">
+        <div class="close-icon" onclick="toggleMenu()">
+            <img src="ima/cerrar.png" alt="Close Icon">
+        </div>
+        <a href="index.html">Home</a>
+        <div class="submenu">
+            <a href="#" onclick="toggleSubmenu(event)">Nuestros productos</a>
+            <div class="submenu-content" id="submenu-content">
+                <a href="whalas.html">Pijama Whalas</a>
+                <a href="catalogo.html">Merch</a>
+            </div>
+        </div>
+        <a href="#contacto">Contacto</a>
+        <a href="#sobre-nosotros">Sobre Nosotros</a>
+    </div>
+    <div class="search-cart-container">
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Buscar...">
+            <img src="ima/bus.png" alt="Buscar" id="search-icon">
+        </div>
+        <div class="carrito">
+            <img src="ima/car3.png" alt="Carrito de compras" id="carrito-icon">
+            <h2 id="carrito-total"></h2>
+        </div>
+    </div>
+</div>
+ 
   <div class="container">
     <div class="product-slider">
       <div class="product-image" id="product-image">
@@ -77,8 +163,53 @@
           <img src="ima/1208_1_150x.gif" alt="Whale Blankie Video">
         </div>
       </div>
+
+      <!-- Nueva sección 2 -->
+      <div class="new-section2">
+        <h2>¡La manta de invierno más fresca!</h2>
+        <p>
+          Lleva tu <strong>comodidad</strong> al siguiente nivel con nuestra <strong>manta™ de ballena.</strong> ¡La combinación definitiva de <strong>calidez y ternura</strong>, perfecta para cualquier ocasión!
+        </p>
+        <div class="video-container2">
+          <img src="ima/ezgif.com-video-to-gif_1_269f2e7f-38f4-4377-bc36-334427f81477_150x.gif" alt="Whale Blankie Video">
+        </div>
+      </div>
+
     </div>
   </div>
+
+  <div class="icon-bar">
+    <div class="icon-container">
+        <img src="https://img.icons8.com/?size=100&id=3683&format=png&color=1A1A1A" alt="Worldwide Insured Shipping">
+        <p><strong>Worldwide Insured Shipping</strong></p>
+    </div>
+    <div class="icon-container">
+        <img src="https://img.icons8.com/?size=100&id=23264&format=png&color=1A1A1A" alt="24/7 Customer Support">
+        <p><strong>24/7 Customer Support</strong></p>
+    </div>
+    <div class="icon-container">
+        <img src="https://img.icons8.com/?size=100&id=63019&format=png&color=1A1A1A alt="Washer & Drier Friendly">
+        <p><strong>Washer & Drier Friendly</strong></p>
+    </div>
+    <div class="icon-container">
+        <img src="https://img.icons8.com/?size=100&id=794&format=png&color=1A1A1A" alt="Pollution Free">
+        <p><strong>Pollution Free</strong></p>
+    </div>
+</div>
+
+  <footer class="footer">
+    <ul class="footer-menu">
+        <li><a href="#Contacto">CONTACTO</a></li>
+        <li><a href="politicas.html">CUESTIONES LEGALES</a></li>
+        <li><a href="#terminos">INSTAGRAM</a></li>
+    </ul>
+    <div class="payment-methods">
+        <img src="ima/pay.png" alt="Formas de pago">
+    </div>
+    <div class="footer-text">
+        Whalas™ 2024 @ todos los derechos reservados
+    </div>
+</footer>
 
   <script src="whalas.js"></script>
 </body>
