@@ -291,7 +291,7 @@ body {
 }
 
 /* Consultas de medios para pantallas más pequeñas */
-@media (max-width: 768px) {
+@media (max-width: 484px) {
   .container {
       padding: 20px; /* Reducir padding en pantallas pequeñas */
   }
@@ -446,7 +446,7 @@ body {
     }
   }
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 480px) {
     .slide, .slide2, .slide3 {
         font-size: 1rem;
     }
@@ -572,7 +572,7 @@ body {
   }
   
   /* Ajustes para la versión móvil */
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 480px) {
     .navbar {
       flex-direction: row;
       justify-content: space-between;
@@ -695,7 +695,7 @@ body {
   }
   
   /* Estilos responsive */
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 480px) {
     .product-container {
       flex-direction: column;
       align-items: center;
@@ -790,7 +790,7 @@ body {
     margin: 0;
     font-weight: bold;
 }
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .icon-bar {
         flex-direction: column;
     }
