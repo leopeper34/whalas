@@ -1,12 +1,267 @@
 body {
   font-family: 'Questrial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #EFF0F5;
+  color: #0E1B4D;
 }
 
+/* Sección del slider */
+.slider, .slider2, .slider3 {
+  width: 100vw; /* Ajusta el ancho al 100% de la vista */
+  height: auto;
+  overflow: hidden;
+  background-color: #EFF0F5;
+}
+
+.slide-track, .slide-track2, .slide-track3 {
+  display: flex;
+  animation: scroll 40s linear infinite;
+  width: calc(200px * 14);
+}
+
+.slide, .slide2, .slide3 {
+  width: 200px;
+  flex-shrink: 0;
+}
+slide-text3, slide-text2, slide-text {
+  width: 100%;
+  color: #0E1B4D;
+  text-align: center; /* Añadido para centrar el texto */
+}
+@keyframes scroll {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(calc(-200px * 7));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slide, .slide2, .slide3 {
+      font-size: 1rem;
+  }
+}
+
+/* Barra de navegación */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #0E1B4D;
+  color: #EFF0F5;
+}
+
+.navbar .logo img {
+  height: 80px;
+}
+
+.navbar .menu {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 2%;
+}
+
+.navbar .menu a {
+  color: #EFF0F5;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.navbar .menu a:hover {
+  text-decoration: underline;
+}
+
+.search-cart-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar .search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navbar .search-container input[type="text"] {
+  padding: 5px;
+  border: none;
+  border-radius: 25px;
+  margin-right: 10px;
+  width: 0;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  position: absolute;
+  right: 40px;
+}
+
+.navbar .search-container input[type="text"].active {
+  width: 200px;
+  opacity: 1;
+}
+
+.navbar .search-container img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.carrito {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.carrito img {
+  width: 25px;
+  height: 25px;
+  color: #EFF0F5;
+}
+
+.carrito h2 {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #EFF0F5;
+}
+
+/* Iconos del menú y cerrar menú */
+.menu-icon, .close-icon {
+  display: none;
+}
+
+/* Estilos del submenú */
+.submenu {
+  position: relative;
+}
+
+.submenu-content {
+  display: none;
+  position: absolute;
+  background-color: #0E1B4D;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.submenu-content a {
+  color: #EFF0F5;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.submenu-content a:hover {
+  background-color: #1A237E;
+}
+
+.submenu:hover .submenu-content {
+  display: block;
+}
+
+/* Ajustes para la versión móvil */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menu-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+  }
+
+  .logo img {
+    margin: 0 auto;
+  }
+
+  .menu {
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: -250px;
+    background-color: #0E1B4D;
+    width: 250px;
+    height: 100%;
+    transition: left 0.3s ease;
+    z-index: 10;
+    padding-top: 20px;
+  }
+
+  .menu.active {
+    left: 0;
+  }
+
+  .close-icon {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    cursor: pointer;
+  }
+
+  .close-icon img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .carrito {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 10px;
+  }
+
+  .search-container input[type="text"] {
+    width: 150px;
+    opacity: 1;
+  }
+
+  /* Estilos para el submenú en versión móvil */
+  .submenu-content {
+    position: relative;
+    background-color: #0E1B4D;
+    width: 100%;
+  }
+
+  .submenu-content a {
+    padding: 12px;
+  }
+
+  .menu.active .submenu-content {
+    display: block;
+  }
+}
+
+/**************************
+**************************/
 .container {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .product-info {
