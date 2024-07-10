@@ -104,3 +104,18 @@ function toggleMenu() {
   const menu = document.getElementById('menu');
   menu.classList.toggle('active');
 }
+function shareContent() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Whale Blankie™',
+      text: 'Check out this amazing Whale Blankie™!',
+      url: 'https://yourwebsite.com'
+    }).then(() => {
+      console.log('Successful share');
+    }).catch((error) => {
+      console.error('Error sharing:', error);
+    });
+  } else {
+    alert('Web Share API is not supported in your browser.');
+  }
+}

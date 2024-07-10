@@ -563,49 +563,6 @@ new section
 /* Responsive Styles */
 @media (max-width: 480px) {
   .container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .product-info {
-    width: 80%;
-    padding: 10px;
-  }
-
-  .product-slider {
-    width: 100%;
-    height: auto;
-  }
-
-  .product-image {
-    height: auto;
-  }
-
-  .product-title {
-    font-size: 1.2em;
-  }
-
-  .product-price {
-    font-size: 1em;
-  }
-
-  .size-button,
-  .product-button {
-    width: 100%;
-    text-align: center;
-  }
-
-  .quantity-button {
-    padding: 5px;
-  }
-
-  .product-quantity input {
-    width: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
     padding: 10px;
   }
 
@@ -625,7 +582,7 @@ new section
 
   .product-images {
     bottom: 5px;
-    left: 5px;
+    left: 70px;
   }
 
   .product-thumb {
@@ -656,4 +613,26 @@ new section
     width: 30px;
   }
 }
+.share-button-wrapper {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.share-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #EFF0F5;
+  border: 1px solid #EFF0F5;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #0E1B4D;
+}
+
+.share-button img {
+  margin-right: 5px;
+  height: 20px;
+}
+
 
