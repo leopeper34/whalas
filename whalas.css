@@ -395,7 +395,15 @@ slide-text3, slide-text2, slide-text {
   color: #EFF0F5;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .accordion {
+  width: 100%; /* Asegura que los acordeones tomen todo el ancho disponible */
+  max-width: 800px; /* Puedes ajustar este valor según tus necesidades */
   margin-top: 10px;
 }
 
@@ -449,6 +457,70 @@ slide-text3, slide-text2, slide-text {
   max-height: 1000px; /* A high value to ensure it expands */
   transition: max-height 0.5s ease-in;
 }
+
+/***********************
+new section
+***********************/
+.new-section-wrapper {
+  width: 100%; /* Asegura que la nueva sección tome todo el ancho disponible */
+  max-width: 800px; /* Puedes ajustar este valor según tus necesidades */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Ajusta el margen según sea necesario */
+}
+
+.new-section, .new-section2 {
+  width: 100%;
+  text-align: center;
+}
+
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.payment-icons img {
+  width: 200px;
+  height: 20px;
+}
+
+.new-section h2, .new-section2 h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.new-section h3 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.new-section p, .new-section2 p {
+  font-size: 1em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.video-container, .video-container2 {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.video-container img, .video-container2 img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Estilos para párrafos adicionales */
+.new-section p.additional, .new-section2 p.additional {
+  font-size: 1em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+
 
 .modal {
   display: none; 
@@ -577,10 +649,11 @@ slide-text3, slide-text2, slide-text {
   }
 
   .quantity-button {
-    padding: 5px;
+    padding: 15px;
   }
 
   .product-quantity input {
     width: 30px;
   }
 }
+
