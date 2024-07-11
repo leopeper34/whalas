@@ -107,15 +107,15 @@ function toggleMenu() {
 function shareContent() {
   if (navigator.share) {
     navigator.share({
-      title: 'Whale Blankie™',
-      text: 'Check out this amazing Whale Blankie™!',
-      url: 'https://yourwebsite.com'
+      title: 'Whalas Blankie™',
+      text: '¡Mira esta increíble pijama de ballena!',
+      url: 'https://leopeper34.github.io/whalas/#'
     }).then(() => {
-      console.log('Successful share');
+      console.log('Compartir exitosamente');
     }).catch((error) => {
-      console.error('Error sharing:', error);
+      console.error('Error al compartir:', error);
     });
   } else {
-    alert('Web Share API is not supported in your browser.');
+    alert('Web Share API no es compatible con su navegador.');
   }
 }
