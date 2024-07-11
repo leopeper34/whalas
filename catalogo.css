@@ -1,9 +1,12 @@
 body {
-  font-family: Questrial, sans-serif;
+  font-family: 'Questrial', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #EFF0F5;
-  text-align: center;
+  color: #0E1B4D;
+  min-height: 100vh; /* Añadir esta línea */
+  display: flex;
+  flex-direction: column;
 }
 /* Barra de navegación */
 .navbar {
@@ -537,11 +540,15 @@ slide-text3, slide-text2, slide-text {
   background-color: #0E1B4D;
   padding: 20px;
   text-align: center;
+  color: #EFF0F5;
+  flex-shrink: 0; /* Añadir esta línea */
+  width: 100%; /* Asegura que el footer ocupa todo el ancho */
 }
 
 .footer-menu {
   list-style-type: none;
   padding: 0;
+  margin: 0; /* Añadir esta línea para evitar márgenes no deseados */
 }
 
 .footer-menu li {
@@ -564,6 +571,7 @@ slide-text3, slide-text2, slide-text {
   color: #EFF0F5;
 }
 
+
 /* Estilos responsive */
 @media screen and (max-width: 768px) {
   /* Estilos específicos para el footer en dispositivos móviles */
@@ -582,3 +590,4 @@ slide-text3, slide-text2, slide-text {
     text-align: left;
   }
 }
+
