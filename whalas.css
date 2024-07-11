@@ -704,10 +704,12 @@ new section
   list-style-type: none;
   padding: 0;
   margin: 0;  /* Asegúrate de que no haya margen adicional */
+  display: flex;
+  justify-content: center;  /* Centra los elementos horizontalmente */
+  flex-wrap: wrap;  /* Permite que los elementos se ajusten a la línea siguiente si es necesario */
 }
 
 .footer-menu li {
-  display: inline;
   margin: 0 15px;
 }
 
@@ -729,18 +731,22 @@ new section
 /* Estilos responsive */
 @media screen and (max-width: 768px) {
   .footer-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column;  /* Cambia a disposición vertical en pantallas pequeñas */
+    align-items: center;
   }
 
   .footer-menu li {
-    display: block;
     margin: 10px 0;
   }
 
   .footer-menu a {
-    text-align: left;
+    text-align: center;  /* Centra el texto de los enlaces */
+  }
+
+  .payment-methods img {
+    max-width: 100%;  /* Asegura que la imagen de métodos de pago se ajuste al ancho del contenedor */
+    height: auto;  /* Mantiene la proporción de la imagen */
   }
 }
+
 
