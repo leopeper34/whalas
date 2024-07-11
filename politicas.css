@@ -232,6 +232,7 @@ body {
   width: 100%; /* ancho del acordeón al 100% del contenedor */
   max-width: 800px; /* ancho máximo para pantallas grandes */
   margin: 20px auto;
+  color: #0E1B4D;
 }
 
 .accordion-item {
@@ -254,6 +255,7 @@ body {
   border: none;
   outline: none;
   cursor: pointer;
+  color: #0E1B4D;
 }
 
 .accordion-button span {
