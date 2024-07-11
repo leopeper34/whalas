@@ -4,9 +4,10 @@ body {
   padding: 0;
   background-color: #EFF0F5;
   color: #0E1B4D;
-  min-height: 100vh; /* Añadir esta línea */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
 }
 
 
@@ -696,23 +697,30 @@ new section
 /**************
    FOOTER
 **************/
+.main-content {
+  flex-grow: 1;
+}
+
+/* Footer */
 .footer {
   background-color: #0E1B4D;
   padding: 20px;
   text-align: center;
   color: #EFF0F5;
-  flex-shrink: 0; /* Añadir esta línea */
+  flex-shrink: 0;
   width: 100%; /* Asegura que el footer ocupa todo el ancho */
 }
 
 .footer-menu {
   list-style-type: none;
   padding: 0;
-  margin: 0; /* Añadir esta línea para evitar márgenes no deseados */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .footer-menu li {
-  display: inline;
   margin: 0 15px;
 }
 
@@ -729,6 +737,26 @@ new section
   margin-top: 20px;
   font-size: 14px;
   color: #EFF0F5;
+}
+
+/* Estilos responsive para el footer */
+@media screen and (max-width: 768px) {
+  .footer-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-menu li {
+    margin: 10px 0;
+  }
+
+  .payment-methods {
+    margin-top: 10px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+  }
 }
 
 

@@ -5,6 +5,7 @@ body {
   padding: 0;
   background-color: #EFF0F5;
   color: #0E1B4D;
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
 }
 
 /* Barra de navegación */
