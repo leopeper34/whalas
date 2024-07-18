@@ -61,6 +61,8 @@ body {
   padding: 20px;
   background-color: #0E1B4D;
   color: #EFF0F5;
+  width: 100%; 
+  box-sizing: border-box;
 }
 
 .navbar .logo img {
@@ -693,7 +695,7 @@ new section
     font-size: 1.2rem;
   }
 }
-/**************
+  /**************
    FOOTER
 **************/
 .main-content {
@@ -718,12 +720,10 @@ new section
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
 .footer-menu li {
   margin: 0 15px;
-  box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
 .footer-menu a {
@@ -761,17 +761,6 @@ new section
   }
 }
 
-/* Asegura que no haya desbordamiento horizontal */
-* {
-  box-sizing: border-box;
-}
-
-.container {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-
 /* Estilos responsive */
 @media screen and (max-width: 768px) {
   /* Estilos específicos para el footer en dispositivos móviles */
@@ -799,6 +788,7 @@ new section
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto; /* Asegura que la sección esté centrada */
+  margin-bottom: 30px;
 }
 
 h1 {
