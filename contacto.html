@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whalas Catálogo de Productos</title>
-    <link rel="stylesheet" href="catalogo.css">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="contacto.css">
 </head>
 <body>
-    
     <div class="slider">
         <div class="slide-track">
             <div class="slide">
@@ -31,7 +30,6 @@
             <div class="slide">
                 <p class="slide-text">🐳Whalas™🐳</p>
             </div>
-    
             <div class="slide">
                 <p class="slide-text">25% este verano!</p>
             </div>
@@ -90,49 +88,70 @@
             </div>
         </div>
     </div>
-		
-    <div class="hero">
-        <img src="ima/ima11.png" alt="Ballenas">
-        <div class="hero-text">
-            <h1>50% SOLO POR HOY!</h1>
-            <p>disfruta de nuestros grandes productos</p>
-        </div>
-    </div>
-    
-    <div class="encabezado">
-        <div class="ordenar" onclick="toggleOrdenarMenu()">
-            <h2>Ordenar Por:</h2>
-            <div id="ordenar-content" class="ordenar-content">
-                <p onclick="ordenarCatalogo('az')">Nombre A-Z</p>
-                <p onclick="ordenarCatalogo('za')">Nombre Z-A</p>
-                <p onclick="ordenarCatalogo('precio-asc')">Precio Menor-Mayor</p>
-                <p onclick="ordenarCatalogo('precio-desc')">Precio Mayor-Menor</p>
+
+    <!-- Formulario de contacto -->
+    <form class="contact-form">
+        <h1>Contacto</h1>
+        <p>Nos comunicaremos con usted dentro de las 48 horas...</p>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="first-name">Nombre <span>*</span></label>
+                <div class="input-container">
+                    <input type="text" id="first-name" name="first-name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Apellido <span>*</span></label>
+                <div class="input-container">
+                    <input type="text" id="last-name" name="last-name">
+                </div>
             </div>
         </div>
-        <div class="cantidad-productos">
-            <h2 id="total-productos"></h2>
-        </div>
-    </div>
-    
-
-    <div id="catalogo"></div>
-
-    <div class="modal" id="carrito-modal">
-        <div class="modal-header">
-            <h2 class="carrito-titulo">Carrito de Compras</h2>
-            <span class="modal-close" onclick="cerrarModal()">&times;</span>
-        </div>
-        <div class="modal-body">
-            <div id="carrito-productos"></div>
-            <h2 id="carrito-vacio" class="carrito-vacio">El carrito está vacío</h2>
-            <div class="subtotal-container">
-                <h3 class="subtotal-title">Subtotal:</h3>
-                <h3 class="subtotal-amount" id="subtotal"></h3>
+        <div class="form-group">
+            <label for="email">Email <span>*</span></label>
+            <div class="input-container">
+                <input type="email" id="email" name="email">
             </div>
-            <button class="pagar-todo" onclick="pagar()">Pagar Todo</button>
         </div>
-    </div>
-    
+        <div class="form-group">
+            <label for="order-number">Número de orden</label>
+            <p>Se le proporcionó cuando realizó su pedido. Si no puede encontrar su número de pedido, déjelo en blanco...</p>
+            <div class="input-container">
+                <input type="text" id="order-number" name="order-number">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject <span>*</span></label>
+            <div class="input-container">
+                <select id="subject" name="subject">
+                    <option value="">Peticiones sobre producto</option>
+                    <option value="">Consulta de envío</option>
+                    <option value="">Tamaño (Adjuntar foto)</option>
+                    <option value="">Producto Dañado (Adjuntar Foto)</option>
+                    <option value="">Estado del pedido</option>
+                    <option value="">Cancelar pedido/reembolso</option>
+                    <option value="">Dirección incorrecta</option>
+                    <option value="">Otro</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="message">Mensaje <span>*</span></label>
+            <p>Como podemos ayudarte?</p>
+            <div class="input-container">
+                <textarea id="message" name="message"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="file-upload">Subir archivo</label>
+            <p>El tamaño máximo de archivo es de 10 MB.</p>
+            <div class="input-container">
+                <input type="file" id="file-upload" name="file-upload">
+            </div>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
     <footer class="footer">
         <ul class="footer-menu">
             <li><a href="#Contacto">CONTACTO</a></li>
@@ -146,7 +165,6 @@
           Whalas™ 2024 @ todos los derechos reservados
         </div>
       </footer>
-      
-    <script src="catalogo.js"></script>
+
 </body>
 </html>

@@ -72,7 +72,6 @@ body {
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
-  border-radius: 2%;
 }
 
 .navbar .menu a {
@@ -264,7 +263,7 @@ body {
 
 /**************************
 **************************/
-.container {
+.container1 {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
@@ -523,7 +522,7 @@ new section
 
 /* Estilos para párrafos adicionales */
 .new-section p.additional, .new-section2 p.additional {
-  font-size: 1em;
+  font-size: 1rem;
   margin-bottom: 20px;
   line-height: 1.5;
 }
@@ -568,7 +567,7 @@ new section
 
 /* Responsive Styles */
 @media (max-width: 480px) {
-  .container {
+  .container1 {
     padding: 10px;
   }
 
@@ -699,7 +698,6 @@ new section
 **************/
 .main-content {
   flex-grow: 1;
-
 }
 
 /* Footer */
@@ -710,7 +708,7 @@ new section
   color: #EFF0F5;
   flex-shrink: 0;
   width: 100%; /* Asegura que el footer ocupa todo el ancho */
-  margin-top: 20px;
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
 .footer-menu {
@@ -720,10 +718,12 @@ new section
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
 .footer-menu li {
   margin: 0 15px;
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
 .footer-menu a {
@@ -761,6 +761,16 @@ new section
   }
 }
 
+/* Asegura que no haya desbordamiento horizontal */
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 
 /* Estilos responsive */
 @media screen and (max-width: 768px) {
@@ -787,6 +797,8 @@ new section
   width: 90%;
   max-width: 1200px;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto; /* Asegura que la sección esté centrada */
 }
 
 h1 {
@@ -846,16 +858,45 @@ h1 span {
 
 @media (max-width: 992px) {
   .testimonials {
-      grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center; /* Centra el contenido horizontalmente */
   }
 }
 
 @media (max-width: 600px) {
   .testimonials {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center; /* Centra el contenido horizontalmente */
   }
 
   .testimonial {
-      width: 100%;
+    width: 90%; /* Ajusta el ancho del testimonio */
+    margin: 0 auto; /* Centra los testimonios */
+    padding: 10px; /* Ajusta el padding para móviles */
   }
 }
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em; /* Ajusta el tamaño del título */
+  }
+
+  .testimonial {
+    width: 100%; /* Ajusta el ancho del testimonio */
+    margin: 0 auto; /* Centra los testimonios */
+    padding: 10px; /* Ajusta el padding para móviles */
+  }
+
+  .rating {
+    font-size: 1.2em; /* Ajusta el tamaño de la calificación */
+  }
+
+  .review {
+    font-size: 0.9em; /* Ajusta el tamaño de la reseña */
+  }
+
+  .author {
+    font-size: 1em; /* Ajusta el tamaño del autor */
+  }
+}
+

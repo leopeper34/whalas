@@ -1,17 +1,52 @@
-/* Estilos generales */
 body {
-  font-family: 'Questrial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #EFF0F5;
-  color: #0E1B4D;
-  min-height: 100vh; /* Añadir esta línea */
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden; /* Evita el desbordamiento horizontal */
-/* Barra de navegación */
-
-.navbar {
+    font-family: 'Questrial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EFF0F5;
+    color: #0E1B4D;
+    min-height: 100vh; /* Añadir esta línea */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+  }
+  
+  /* Sección del slider */
+.slider, .slider2, .slider3 {
+    width: 100vw; /* Ajusta el ancho al 100% de la vista */
+    height: auto;
+    overflow: hidden;
+    background-color: #EFF0F5;
+  }
+  
+  .slide-track, .slide-track2, .slide-track3 {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    width: calc(200px * 14);
+  }
+  
+  .slide, .slide2, .slide3 {
+    width: 200px;
+    flex-shrink: 0;
+  }
+  slide-text3, slide-text2, slide-text {
+    width: 100%;
+    color: #0E1B4D;
+    text-align: center; /* Añadido para centrar el texto */
+  }
+  @keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-200px * 7));
+    }
+  }
+  .container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  /* Barra de navegación */
+  .navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,6 +54,8 @@ body {
     padding: 20px;
     background-color: #0E1B4D;
     color: #EFF0F5;
+    width: 100%; 
+    box-sizing: border-box;
   }
   
   .navbar .logo img {
@@ -218,125 +255,6 @@ body {
       display: block;
     }
   }
-
-
-}
-
-/* Estilos generales */
-body {
-  font-family: 'Questrial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #EFF0F5;
-  color: #0E1B4D;
-}
-
-.accordion {
-  width: 100%; /* ancho del acordeón al 100% del contenedor */
-  max-width: 800px; /* ancho máximo para pantallas grandes */
-  margin: 20px auto;
-  color: #0E1B4D;
-}
-
-.accordion-item {
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.accordion-header {
-  padding: 10px;
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #ccc;
-  cursor: pointer;
-}
-
-.accordion-button {
-  width: 100%;
-  text-align: left;
-  padding: 10px;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  color: #0E1B4D;
-}
-
-.accordion-button span {
-  font-weight: bold;
-}
-
-.accordion-button i {
-  float: right;
-  margin-left: 10px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.accordion-button[aria-expanded="true"] i {
-  transform: rotate(180deg);
-}
-
-.accordion-content {
-  padding: 10px;
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-  display: none;
-  text-align: justify;
-  text-align-last: center;
-}
-
-.accordion-item.active .accordion-content {
-  display: block;
-}
-
-.float-right {
-  float: right;
-}
-
-/* Añade estilo para los párrafos dentro del acordeón */
-.accordion-content p {
-  text-align: justify;
-  margin: 1em 0;
-}
-
-/* Media query para pantallas móviles */
-@media (max-width: 600px) {
-  .accordion {
-      width: 90%; /* ancho del acordeón al 90% del contenedor */
-      margin: 20px auto;
-  }
-}
-
-/* Sección del slider */
-.slider, .slider2, .slider3 {
-    width: 100vw; /* Ajusta el ancho al 100% de la vista */
-    height: auto;
-    overflow: hidden;
-    background-color: #EFF0F5;
-  }
-  
-  .slide-track, .slide-track2, .slide-track3 {
-    display: flex;
-    animation: scroll 40s linear infinite;
-    width: calc(200px * 14);
-  }
-  
-  .slide, .slide2, .slide3 {
-    width: 200px;
-    flex-shrink: 0;
-  }
-  slide-text3, slide-text2, slide-text {
-    width: 100%;
-    color: #0E1B4D;
-    text-align: center; /* Añadido para centrar el texto */
-  }
-  @keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-200px * 7));
-    }
-  }
   /**************
    FOOTER
 **************/
@@ -362,12 +280,10 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
 .footer-menu li {
   margin: 0 15px;
-  box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
 .footer-menu a {
@@ -405,17 +321,6 @@ body {
   }
 }
 
-/* Asegura que no haya desbordamiento horizontal */
-* {
-  box-sizing: border-box;
-}
-
-.container {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-
 /* Estilos responsive */
 @media screen and (max-width: 768px) {
   /* Estilos específicos para el footer en dispositivos móviles */
@@ -434,3 +339,89 @@ body {
     text-align: left;
   }
 }
+.contact-form {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.contact-form h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #0E1B4D;
+}
+
+.contact-form p {
+  text-align: center;
+  color: #0E1B4D;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 25px;
+  color: #0E1B4D;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container input,
+.input-container select,
+.input-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.input-container input[type="file"] {
+  padding: 3px;
+}
+
+.input-container input:focus,
+.input-container select:focus,
+.input-container textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+input[type="file"] {
+  background-color: #FFF;
+  color: #0E1B4D;
+}
+
+textarea {
+  height: 100px;
+}
+
+button[type="submit"] {
+  background-color: #0E1B4D;
+  color: #EFF0F5;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #000;
+}
+
