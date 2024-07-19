@@ -564,7 +564,7 @@ new section
 }
 /* Responsive Styles */
 @media (max-width: 480px) {
-  .container {
+  .container1 {
     padding: 10px;
   }
 
@@ -768,9 +768,8 @@ new section
 
   .footer-menu li {
     display: block;
-    margin: 10px 
+    margin: 10px 0;
   }
-
 
   .footer-menu a {
     text-align: left;
@@ -886,4 +885,3 @@ h1 span {
     font-size: 1em; /* Ajusta el tamaño del autor */
   }
 }
-
