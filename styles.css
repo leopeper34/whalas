@@ -312,7 +312,7 @@ slide-text3, slide-text2, slide-text {
 .container2 {
   padding: 20px;
   text-align: center;
-  color: #EFF0F5;
+  color: #0E1B4D;
 }
 
 .container2 .header h1 {
@@ -328,7 +328,7 @@ slide-text3, slide-text2, slide-text {
 }
 
 .quote-box {
-  background-color: #192864;
+  background-color: #EFF0F5;
   padding: 20px;
   border-radius: 15px;
   width: 100%;
@@ -339,12 +339,12 @@ slide-text3, slide-text2, slide-text {
 .quote-box .circle {
   width: 100px;
   height: 100px;
-  background-color: #EFF0F5;
+  background-color: #0E1B4D;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #0E1B4D;
+  color: #EFF0F5;
   margin: 0 auto 10px;
   position: relative;
 }
