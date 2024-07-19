@@ -10,6 +10,7 @@ body {
   overflow-x: hidden; /* Evita el desbordamiento horizontal */
 }
 
+
 /* Sección del slider */
 .slider, .slider2, .slider3 {
   width: 100vw; /* Ajusta el ancho al 100% de la vista */
@@ -264,7 +265,7 @@ body {
 
 /**************************
 **************************/
-.container {
+.container1 {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
@@ -564,7 +565,7 @@ new section
 }
 /* Responsive Styles */
 @media (max-width: 480px) {
-  .container1 {
+  .container {
     padding: 10px;
   }
 
@@ -691,8 +692,8 @@ new section
     font-size: 1.2rem;
   }
 }
-/**************
- FOOTER
+  /**************
+   FOOTER
 **************/
 .main-content {
   flex-grow: 1;
@@ -777,13 +778,11 @@ new section
 }
 
 /*******testimonios*******/
+
 .testimonial-section {
   text-align: center;
   width: 90%;
   max-width: 1200px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto; /* Asegura que la sección esté centrada */
   margin-bottom: 30px;
 }
 
@@ -825,14 +824,20 @@ h1 span {
   margin: 10px 0;
 }
 
+.review-container {
+  display: inline-block;
+  text-align: center;
+  margin: 10px 0;
+}
+
 .review {
   font-size: 1em;
-  margin: 10px 0;
+  margin: 0;
 }
 
 .separator {
   width: 100%;
-  border-top: .5px solid #0E1B4D; /* Adjusted thickness */
+  border-top: 0.5px solid #0E1B4D; /* Adjusted thickness */
   margin: 10px 0;
 }
 
@@ -840,48 +845,23 @@ h1 span {
   font-size: 1.1em;
   font-weight: bold;
   color: #0E1B4D;
+  text-align: center;
 }
 
 @media (max-width: 992px) {
   .testimonials {
-    grid-template-columns: 1fr 1fr;
-    justify-items: center; /* Centra el contenido horizontalmente */
+      grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 600px) {
   .testimonials {
-    grid-template-columns: 1fr;
-    justify-items: center; /* Centra el contenido horizontalmente */
+      grid-template-columns: 1fr;
+      justify-items: center; /* Centers the grid items */
   }
 
   .testimonial {
-    width: 90%; /* Ajusta el ancho del testimonio */
-    margin: 0 auto; /* Centra los testimonios */
-    padding: 10px; /* Ajusta el padding para móviles */
+      width: 100%;
   }
 }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2em; /* Ajusta el tamaño del título */
-  }
-
-  .testimonial {
-    width: 100%; /* Ajusta el ancho del testimonio */
-    margin: 0 auto; /* Centra los testimonios */
-    padding: 10px; /* Ajusta el padding para móviles */
-  }
-
-  .rating {
-    font-size: 1.2em; /* Ajusta el tamaño de la calificación */
-  }
-
-  .review {
-    font-size: 0.9em; /* Ajusta el tamaño de la reseña */
-  }
-
-  .author {
-    font-size: 1em; /* Ajusta el tamaño del autor */
-  }
-}
