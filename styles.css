@@ -404,10 +404,38 @@ slide-text3, slide-text2, slide-text {
   background-color: #0E1B4D;
 }
 
+/* Flex Container */
+.flex-container {
+  display: flex;
+  flex-direction: column; /* En móviles, disposición vertical */
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .flex-container {
+    flex-direction: row; /* En escritorio, disposición horizontal */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+  }
+
+  .description3 {
+    width: 40%;
+    padding: 20px;
+    text-align: left; /* Alinear texto a la izquierda en escritorio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente la descripción y el botón */
+  }
+
+  .gallery-slider {
+    width: 50%;
+  }
+}
+
 /* Gallery */
 .gallery-slider {
   position: relative;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
   text-align: center;
@@ -451,11 +479,11 @@ button.prev, button.next {
 }
 
 button.prev {
-  left: 10px;
+  left: 300px;
 }
 
 button.next {
-  right: 10px;
+  right: 300px;
 }
 
 /* Description */
@@ -486,6 +514,25 @@ button.next {
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
   color: #EFF0F5;
 }
+
+@media (max-width: 767px) {
+  .flex-container {
+    flex-direction: column; /* En móviles, disposición vertical */
+    align-items: center;
+  }
+
+  .gallery-slider {
+    order: 1; /* Asegura que la galería esté antes de la descripción */
+  }
+
+  .description3 {
+    order: 2; /* Asegura que la descripción esté después de la galería */
+    width: 100%; /* Asegura que la descripción ocupe todo el ancho disponible */
+    text-align: center; /* Centra la descripción y el botón */
+  }
+}
+
+
 /*****************************
      PRODUCTO
 *****************************/
