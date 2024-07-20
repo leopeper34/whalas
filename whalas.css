@@ -52,7 +52,6 @@ body {
   }
 }
 
-/* Barra de navegación */
 .navbar {
   display: flex;
   flex-direction: row;
@@ -61,8 +60,6 @@ body {
   padding: 20px;
   background-color: #0E1B4D;
   color: #EFF0F5;
-  width: 100%; 
-  box-sizing: border-box;
 }
 
 .navbar .logo img {
@@ -204,11 +201,11 @@ body {
 
   .menu {
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: -250px;
+    left: -100%;
     background-color: #0E1B4D;
-    width: 250px;
+    width: 100%;
     height: 100%;
     transition: left 0.3s ease;
     z-index: 10;
@@ -231,6 +228,12 @@ body {
     height: 25px;
   }
 
+  .menu a {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
   .search-container {
     display: flex;
     justify-content: flex-end;
@@ -247,19 +250,9 @@ body {
     opacity: 1;
   }
 
-  /* Estilos para el submenú en versión móvil */
-  .submenu-content {
-    position: relative;
-    background-color: #0E1B4D;
-    width: 100%;
-  }
-
-  .submenu-content a {
-    padding: 12px;
-  }
-
-  .menu.active .submenu-content {
-    display: block;
+  /* Evitar scroll cuando el menú está activo */
+  body.menu-active {
+    overflow: hidden;
   }
 }
 

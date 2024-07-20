@@ -60,7 +60,7 @@
         </div>
         <div class="logo">
             <a href="index.html">
-                <img src="ima/logo.png" alt="Logo" style="height: 80px;">
+                <img src="ima/logo.png" alt="Logo">
             </a>
         </div>
         
@@ -79,11 +79,13 @@
             <a href="contacto.html">Contacto</a>
             <a href="sb.html">Sobre Nosotros</a>
         </div>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Buscar..." oninput="buscarProducto()">
-            <img src="ima/bus.png" alt="Buscar" onclick="toggleSearch()">
-            <div class="carrito" onclick="abrirModal()">
-                <img src="ima/car3.png" alt="Carrito de compras">
+        <div class="search-cart-container">
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Buscar...">
+                <img src="ima/bus.png" alt="Buscar" id="search-icon">
+            </div>
+            <div class="carrito">
+                <img src="ima/car3.png" alt="Carrito de compras" id="carrito-icon">
                 <h2 id="carrito-total"></h2>
             </div>
         </div>

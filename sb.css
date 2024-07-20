@@ -7,8 +7,7 @@ body {
     color: #0E1B4D;
     overflow-x: hidden; /* Evita el desbordamiento horizontal */
   }
-  
-  /* Barra de navegación */
+  /****NAVBAR******/
   .navbar {
     display: flex;
     flex-direction: row;
@@ -28,7 +27,6 @@ body {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    border-radius: 2%;
   }
   
   .navbar .menu a {
@@ -159,11 +157,11 @@ body {
   
     .menu {
       flex-direction: column;
-      position: absolute;
+      position: fixed;
       top: 0;
-      left: -250px;
+      left: -100%;
       background-color: #0E1B4D;
-      width: 250px;
+      width: 100%;
       height: 100%;
       transition: left 0.3s ease;
       z-index: 10;
@@ -186,6 +184,12 @@ body {
       height: 25px;
     }
   
+    .menu a {
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  
     .search-container {
       display: flex;
       justify-content: flex-end;
@@ -202,125 +206,108 @@ body {
       opacity: 1;
     }
   
-    /* Estilos para el submenú en versión móvil */
-    .submenu-content {
-      position: relative;
-      background-color: #0E1B4D;
-      width: 100%;
-    }
-  
-    .submenu-content a {
-      padding: 12px;
-    }
-  
-    .menu.active .submenu-content {
-      display: block;
+    /* Evitar scroll cuando el menú está activo */
+    body.menu-active {
+      overflow: hidden;
     }
   }
   /**************
    FOOTER
 **************/
+.main-content {
+  flex-grow: 1;
+}
+
+/* Footer */
 .footer {
-    background-color: #0E1B4D;
-    padding: 20px;
-    text-align: center;
-  }
-  
+  background-color: #0E1B4D;
+  padding: 20px;
+  text-align: center;
+  color: #EFF0F5;
+  flex-shrink: 0;
+  width: 100%; /* Asegura que el footer ocupa todo el ancho */
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.footer-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.footer-menu li {
+  margin: 0 15px;
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.footer-menu a {
+  text-decoration: none;
+  color: #EFF0F5;
+}
+
+.payment-methods {
+  margin-top: 20px;
+}
+
+.footer-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #EFF0F5;
+}
+
+/* Estilos responsive para el footer */
+@media screen and (max-width: 768px) {
   .footer-menu {
-    list-style-type: none;
-    padding: 0;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .footer-menu li {
-    display: inline;
-    margin: 0 15px;
+    margin: 10px 0;
   }
-  
-  .footer-menu a {
-    text-decoration: none;
-    color: #EFF0F5;
-  }
-  
+
   .payment-methods {
-    margin-top: 20px;
+    margin-top: 10px;
   }
-  
+
   .footer-text {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #EFF0F5;
+    font-size: 12px;
   }
-  
-  /* Estilos responsive */
-  @media screen and (max-width: 768px) {
-    .product-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-  
-    .product-slider {
-      width: 100%;
-      height: auto;
-    }
-  
-    .product-image,
-    .product-image img {
-      height: auto;
-    }
-  
-    .product-images {
-      position: static;
-      margin-top: 10px;
-    }
-  
-    .product-thumb {
-      width: 60px;
-      height: 60px;
-    }
-  
-    .product-info {
-      align-items: center;
-      text-align: center;
-    }
-  
-    .product-info h2 {
-      font-size: 20px;
-    }
-  
-    .price-container {
-      gap: 5px;
-    }
-  
-    .product-info .old-price,
-    .product-info .price {
-      font-size: 18px;
-    }
-  
-    .product-info p {
-      text-align: center;
-    }
-  
-    .add-to-cart {
-      padding: 10px 20px;
-    }
-  
-    /* Estilos específicos para el footer en dispositivos móviles */
-    .footer-menu {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .footer-menu li {
-      display: block;
-      margin: 10px 0;
-    }
-  
-    .footer-menu a {
-      text-align: left;
-    }
+}
+
+/* Asegura que no haya desbordamiento horizontal */
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* Estilos responsive */
+@media screen and (max-width: 768px) {
+  /* Estilos específicos para el footer en dispositivos móviles */
+  .footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
+
+  .footer-menu li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .footer-menu a {
+    text-align: left;
+  }
+}
   /* Estilos para la sección Sobre Nosotros */
 .sobre-nosotros {
     text-align: center;
