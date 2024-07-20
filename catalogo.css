@@ -626,4 +626,27 @@ slide-text3, slide-text2, slide-text {
     text-align: left;
   }
 }
+/* Estilos para los controles de cantidad en el carrito */
+.cantidad-controles {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cantidad-controles button {
+  padding: 2px 6px;
+  background-color: #EFF0F5;
+  border: 1px solid #0E1B4D;
+  border-radius: 25px;
+  cursor: pointer;
+  color: #0E1B4D;
+  font-size: 0.875rem;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 

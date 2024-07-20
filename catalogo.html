@@ -7,52 +7,9 @@
     <link rel="stylesheet" href="catalogo.css">
 </head>
 <body>
-    
     <div class="slider">
         <div class="slide-track">
-            <div class="slide">
-                <p class="slide-text">🐳Whalas™🐳</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">25% este verano!</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">🐳Whalas™🐳</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">25% este verano!</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">🐳Whalas™🐳</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">25% este verano!</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">🐳Whalas™🐳</p>
-            </div>
-    
-            <div class="slide">
-                <p class="slide-text">25% este verano!</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">🐳Whalas™🐳</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">25% este verano!</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">🐳Whalas™🐳</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">25% este verano!</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">🐳Whalas™🐳</p>
-            </div>
-            <div class="slide">
-                <p class="slide-text">25% este verano!</p>
-            </div>
+            <!-- Slider content -->
         </div>
     </div>
     
@@ -83,16 +40,16 @@
         </div>
         <div class="search-cart-container">
             <div class="search-container">
-                <input type="text" id="search" placeholder="Buscar...">
-                <img src="ima/bus.png" alt="Buscar" id="search-icon">
+                <input type="text" id="search" placeholder="Buscar..." oninput="buscarProducto()">
+                <img src="ima/bus.png" alt="Buscar" id="search-icon" onclick="toggleSearch()">
             </div>
-            <div class="carrito">
+            <div class="carrito" onclick="abrirModal()">
                 <img src="ima/car3.png" alt="Carrito de compras" id="carrito-icon">
                 <h2 id="carrito-total"></h2>
             </div>
         </div>
     </div>
-		
+    
     <div class="hero">
         <img src="ima/ima11.png" alt="Ballenas">
         <div class="hero-text">
@@ -115,23 +72,22 @@
             <h2 id="total-productos"></h2>
         </div>
     </div>
-    
 
     <div id="catalogo"></div>
 
-    <div class="modal" id="carrito-modal">
+    <div id="carrito-modal" class="modal">
         <div class="modal-header">
             <h2 class="carrito-titulo">Carrito de Compras</h2>
             <span class="modal-close" onclick="cerrarModal()">&times;</span>
         </div>
         <div class="modal-body">
+            <div id="carrito-vacio" class="carrito-vacio" style="display: none;">Tu carrito está vacío.</div>
             <div id="carrito-productos"></div>
-            <h2 id="carrito-vacio" class="carrito-vacio">El carrito está vacío</h2>
             <div class="subtotal-container">
-                <h3 class="subtotal-title">Subtotal:</h3>
-                <h3 class="subtotal-amount" id="subtotal"></h3>
+                <div class="subtotal-title">Subtotal:</div>
+                <div id="subtotal" class="subtotal-amount"></div>
             </div>
-            <button class="pagar-todo" onclick="pagar()">Pagar Todo</button>
+            <button class="pagar-todo" onclick="pagar()">Pagar</button>
         </div>
     </div>
     
@@ -140,7 +96,7 @@
             <li style="font-weight: bold;">ENLACES RÁPIDOS</li>
             <li><a href="contacto.html">Contacto</a></li>
             <li><a href="politicas.html">Cuestiones legales</a></li>
-            <li><a href="https://www.instagram.com/leozama21/" target="_blank">Intagram</a></li>
+            <li><a href="https://www.instagram.com/leozama21/" target="_blank">Instagram</a></li>
         </ul>
         <div class="payment-methods">
           <img src="ima/pay.png" alt="Formas de pago">
@@ -148,8 +104,8 @@
         <div class="footer-text">
           Whalas™ 2024 @ todos los derechos reservados
         </div>
-      </footer>
-      
+    </footer>
+    
     <script src="catalogo.js"></script>
 </body>
 </html>

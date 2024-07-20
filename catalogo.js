@@ -26,7 +26,30 @@ function mostrarCatalogo() {
 }
 
 function agregarAlCarrito(index) {
-    carrito.push(productos[index]);
+    const productoSeleccionado = productos[index];
+    const productoEnCarrito = carrito.find(item => item.nombre === productoSeleccionado.nombre);
+
+    if (productoEnCarrito) {
+        alert(`El producto "${productoSeleccionado.nombre}" ya está en el carrito.`);
+    } else {
+        productoSeleccionado.cantidad = 1;
+        carrito.push(productoSeleccionado);
+    }
+
+    actualizarCarrito();
+}
+
+function incrementarCantidad(index) {
+    carrito[index].cantidad += 1;
+    actualizarCarrito();
+}
+
+function disminuirCantidad(index) {
+    if (carrito[index].cantidad > 1) {
+        carrito[index].cantidad -= 1;
+    } else {
+        alert("La cantidad no puede ser menor que 1.");
+    }
     actualizarCarrito();
 }
 
@@ -51,12 +74,17 @@ function actualizarCarrito() {
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <div>
                 <h2 class="producto-nombre">${producto.nombre}</h2>
-                <p class="producto-precio">$${producto.precio.toFixed(2)}</p>
+                <p class="producto-precio">$${producto.precio.toFixed(2)} x ${producto.cantidad}</p>
+                <div class="cantidad-controles">
+                    <button onclick="disminuirCantidad(${index})">-</button>
+                    <span>${producto.cantidad}</span>
+                    <button onclick="incrementarCantidad(${index})">+</button>
+                </div>
                 <span class="eliminar-producto" onclick="eliminarDelCarrito(${index})">&times;</span>
             </div>
         `;
         carritoProductos.appendChild(productoDiv);
-        subtotalAmount += producto.precio;
+        subtotalAmount += producto.precio * producto.cantidad;
     });
     subtotal.textContent = `$${subtotalAmount.toFixed(2)}`;
     carritoVacio.style.display = carrito.length === 0 ? 'block' : 'none';
@@ -129,9 +157,13 @@ function toggleOrdenarMenu() {
     const ordenarContent = document.getElementById('ordenar-content');
     ordenarContent.classList.toggle('active');
 }
+
 function toggleMenu() {
     const menu = document.getElementById('menu');
     menu.classList.toggle('active');
-    }
-mostrarCatalogo();
-actualizarCarrito();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarCatalogo();
+    actualizarCarrito();
+});

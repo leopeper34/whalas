@@ -73,3 +73,4 @@ function toggleSubmenu(event) {
   const submenuContent = document.getElementById('submenu-content');
   submenuContent.classList.toggle('active');
 }
+
