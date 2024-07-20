@@ -18,10 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-function toggleMenu() {
-  const menu = document.getElementById('menu');
-  menu.classList.toggle('active');
-}
+
+
 
 // Slider automático
 let slideIndex = 0;
@@ -58,3 +56,20 @@ var span = document.getElementsByClassName('close')[0];
 span.onclick = function() { 
   modal.style.display = 'none';
 };
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.classList.toggle('active');
+  
+  // Evitar scroll cuando el menú está activo
+  if (menu.classList.contains('active')) {
+    document.body.classList.add('menu-active');
+  } else {
+    document.body.classList.remove('menu-active');
+  }
+}
+
+function toggleSubmenu(event) {
+  event.preventDefault();
+  const submenuContent = document.getElementById('submenu-content');
+  submenuContent.classList.toggle('active');
+}
