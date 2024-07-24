@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Pago</title>
     <link rel="stylesheet" href="pago.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=AXke1XSJir5Ge_0d86T6ViMyiwrjbt-h9kZrmAjBjZAPYuavMMCJ5E37kCs8AoeXsbXnMwAwVkiqoYq2&currency=MXN" data-sdk-integration-source="button-factory"></script>
 </head>
 <body>
     <div class="container">
+        <div class="order-summary">
+            <h2>Resumen del Pedido</h2>
+            <div id="resumen-pedido"></div>
+        </div>
         <div class="checkout-form">
             <h1>Pago Express</h1>
-            <button class="paypal-button">PayPal</button>
             <hr>
             <h2>Contacto</h2>
             <input type="text" placeholder="Correo electrónico o número de teléfono móvil">
@@ -72,18 +76,11 @@
             <p>Ingresa tu dirección de envío para ver los métodos de envío disponibles.</p>
 
             <h2>Pago</h2>
-            <label>
-                <input type="radio" name="payment" checked> PayPal
-            </label>
-            <label>
-                <input type="radio" name="payment"> Pagos con tarjeta de crédito y débito
-            </label>
-            <button class="pay-button" onclick="procesarPago()">Pagar con PayPal</button>
-        </div>
-        
-        <div class="order-summary">
-            <h2>Resumen del Pedido</h2>
-            <div id="resumen-pedido"></div>
+            <div id="smart-button-container">
+                <div style="text-align: center;">
+                    <div id="paypal-button-container"></div>
+                </div>
+            </div>
         </div>
     </div>
     

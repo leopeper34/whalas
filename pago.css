@@ -4,14 +4,16 @@ body {
     padding: 0;
     background-color: #EFF0F5;
     color: #0E1B4D;
-    min-height: 100vh; /* Añadir esta línea */
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     overflow-x: hidden; /* Evita el desbordamiento horizontal */
-  }
+}
 
 .container {
     display: flex;
+    flex-direction: column;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -19,14 +21,17 @@ body {
     max-width: 1200px;
     width: 100%;
     gap: 20px;
+    box-sizing: border-box;
 }
 
 .checkout-form, .order-summary {
-    width: 50%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .checkout-form h1, .checkout-form h2 {
     margin-top: 0;
+    text-align: center; /* Centra los títulos */
 }
 
 .paypal-button, .pay-button {
@@ -36,10 +41,8 @@ body {
     margin: 10px 0;
     font-size: 16px;
     cursor: pointer;
-}
-
-.paypal-button {
-    background-color: #ffc439;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .pay-button {
@@ -53,6 +56,7 @@ input[type="text"], select {
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 label {
@@ -62,11 +66,13 @@ label {
 
 .order-summary {
     padding: 20px;
-    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 .order-summary h2 {
     margin-top: 0;
+    text-align: center; /* Centra los títulos */
 }
 
 .order-summary div {
@@ -88,4 +94,26 @@ label {
 
 .product-details {
     flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .checkout-form, .order-summary {
+        width: 50%;
+    }
+
+    .order-summary {
+        padding: 20px;
+        border-left: 1px solid #ccc;
+        border-top: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column-reverse;
+    }
 }

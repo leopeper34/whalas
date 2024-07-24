@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const resumenPedido = JSON.parse(sessionStorage.getItem('resumenPedido'));
     const resumenDiv = document.getElementById('resumen-pedido');
+    let totalAmount = 0;
+
     if (resumenPedido) {
         resumenPedido.productos.forEach(producto => {
             const productoDiv = document.createElement('div');
@@ -11,28 +13,47 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>${producto.nombre} - ${producto.cantidad} x $${producto.precio.toFixed(2)}</p>
                 </div>
             `;
+            totalAmount += producto.cantidad * producto.precio;
             resumenDiv.appendChild(productoDiv);
         });
-        const subtotalDiv = document.createElement('div');
-        subtotalDiv.innerHTML = `<p>Subtotal: $${resumenPedido.subtotal.toFixed(2)}</p>`;
-        resumenDiv.appendChild(subtotalDiv);
 
-        // Si tienes un valor fijo para el envío, agrégalo aquí.
-        const shipping = 4.80; // Precio del envío fijo (puedes ajustar según sea necesario)
-        const total = resumenPedido.subtotal + shipping;
-        const shippingDiv = document.createElement('div');
-        shippingDiv.innerHTML = `<p>Shipping: $${shipping.toFixed(2)}</p>`;
-        resumenDiv.appendChild(shippingDiv);
-        
-        const totalDiv = document.createElement('div');
-        totalDiv.innerHTML = `<p>Total: $${total.toFixed(2)}</p>`;
-        resumenDiv.appendChild(totalDiv);
+        const subtotalDiv = document.createElement('div');
+        subtotalDiv.innerHTML = `<p>Subtotal: $${totalAmount.toFixed(2)}</p>`;
+        resumenDiv.appendChild(subtotalDiv);
     } else {
         resumenDiv.innerHTML = '<p>No hay productos en el carrito.</p>';
     }
+
+    initPayPalButton(totalAmount);
 });
 
-function procesarPago() {
-    alert('Procesando pago...');
-    // Aquí puedes añadir la lógica para procesar el pago y redirigir a la página de confirmación
+function initPayPalButton(totalAmount) {
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'gold',
+            layout: 'vertical',
+            label: 'pay',
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    description: "Resumen del Pedido",
+                    amount: {
+                        currency_code: "MXN",
+                        value: totalAmount.toFixed(2)
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Pago completado por ' + details.payer.name.given_name);
+                // Aquí puedes redirigir a una página de confirmación o actualizar el estado del pedido
+            });
+        },
+        onError: function(err) {
+            console.error('Error en el pago con PayPal', err);
+        }
+    }).render('#paypal-button-container');
 }
