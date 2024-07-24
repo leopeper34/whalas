@@ -224,7 +224,7 @@ body {
   width: 100vw; /* Ajusta el ancho al 100% de la vista */
   height: auto;
   overflow: hidden;
-  background-color: #EFF0F5;
+  background-color: #0E1B4D;
 }
 
 .slide-track, .slide-track2, .slide-track3 {
@@ -237,9 +237,9 @@ body {
   width: 200px;
   flex-shrink: 0;
 }
-slide-text3, slide-text2, slide-text {
+.slide-text3, .slide-text2, .slide-text {
   width: 100%;
-  color: #0E1B4D;
+  color: #EFF0F5;
   text-align: center; /* Añadido para centrar el texto */
 }
 @keyframes scroll {
@@ -313,6 +313,7 @@ slide-text3, slide-text2, slide-text {
   padding: 20px;
   text-align: center;
   color: #0E1B4D;
+  margin-top: 30px;
 }
 
 .container2 .header h1 {
@@ -409,6 +410,7 @@ slide-text3, slide-text2, slide-text {
   display: flex;
   flex-direction: column; /* En móviles, disposición vertical */
   align-items: center;
+  margin-top: 20px;
 }
 
 @media (min-width: 768px) {

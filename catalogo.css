@@ -81,6 +81,16 @@ body {
   align-items: center;
   cursor: pointer;
 }
+.carrito-vacio {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.pagar-todo {
+  display: none; /* Ocultar el botón por defecto */
+}
+
 
 .carrito img {
   width: 25px;

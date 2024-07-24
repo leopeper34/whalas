@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pago</title>
+    <link rel="stylesheet" href="pago.css">
+</head>
+<body>
+    <div class="container">
+        <div class="checkout-form">
+            <h1>Pago Express</h1>
+            <button class="paypal-button">PayPal</button>
+            <hr>
+            <h2>Contacto</h2>
+            <input type="text" placeholder="Correo electrónico o número de teléfono móvil">
+            <label>
+                <input type="checkbox"> Envíame noticias y ofertas
+            </label>
+
+            <h2>Entrega</h2>
+            <select>
+                <option value="Mexico">México</option>
+                <!-- Añade más opciones según sea necesario -->
+            </select>
+            <input type="text" placeholder="Nombre">
+            <input type="text" placeholder="Apellido">
+            <input type="text" placeholder="Dirección">
+            <input type="text" placeholder="Apartamento, suite, etc. (opcional)">
+            <input type="text" placeholder="Código postal">
+            <input type="text" placeholder="Ciudad">
+            <select>
+                <option value="Aguascalientes">Aguascalientes</option>
+                <option value="Baja California">Baja California</option>
+                <option value="Baja California Sur">Baja California Sur</option>
+                <option value="Campeche">Campeche</option>
+                <option value="Chiapas">Chiapas</option>
+                <option value="Chihuahua">Chihuahua</option>
+                <option value="Ciudad de México">Ciudad de México</option>
+                <option value="Coahuila">Coahuila</option>
+                <option value="Colima">Colima</option>
+                <option value="Durango">Durango</option>
+                <option value="Estado de México">Estado de México</option>
+                <option value="Guanajuato">Guanajuato</option>
+                <option value="Guerrero">Guerrero</option>
+                <option value="Hidalgo">Hidalgo</option>
+                <option value="Jalisco">Jalisco</option>
+                <option value="Michoacán">Michoacán</option>
+                <option value="Morelos">Morelos</option>
+                <option value="Nayarit">Nayarit</option>
+                <option value="Nuevo León">Nuevo León</option>
+                <option value="Oaxaca">Oaxaca</option>
+                <option value="Puebla">Puebla</option>
+                <option value="Querétaro">Querétaro</option>
+                <option value="Quintana Roo">Quintana Roo</option>
+                <option value="San Luis Potosí">San Luis Potosí</option>
+                <option value="Sinaloa">Sinaloa</option>
+                <option value="Sonora">Sonora</option>
+                <option value="Tabasco">Tabasco</option>
+                <option value="Tamaulipas">Tamaulipas</option>
+                <option value="Tlaxcala">Tlaxcala</option>
+                <option value="Veracruz">Veracruz</option>
+                <option value="Yucatán">Yucatán</option>
+                <option value="Zacatecas">Zacatecas</option>
+            </select>
+            <input type="text" placeholder="Teléfono (opcional)">
+            <label>
+                <input type="checkbox"> Guardar esta información para la próxima vez
+            </label>
+
+            <h2>Método de envío</h2>
+            <p>Ingresa tu dirección de envío para ver los métodos de envío disponibles.</p>
+
+            <h2>Pago</h2>
+            <label>
+                <input type="radio" name="payment" checked> PayPal
+            </label>
+            <label>
+                <input type="radio" name="payment"> Pagos con tarjeta de crédito y débito
+            </label>
+            <button class="pay-button" onclick="procesarPago()">Pagar con PayPal</button>
+        </div>
+        
+        <div class="order-summary">
+            <h2>Resumen del Pedido</h2>
+            <div id="resumen-pedido"></div>
+        </div>
+    </div>
+    
+    <script src="pago.js"></script>
+</body>
+</html>

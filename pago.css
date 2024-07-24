@@ -1,0 +1,91 @@
+body {
+    font-family: 'Questrial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EFF0F5;
+    color: #0E1B4D;
+    min-height: 100vh; /* Añadir esta línea */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+  }
+
+.container {
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px;
+}
+
+.checkout-form, .order-summary {
+    width: 50%;
+}
+
+.checkout-form h1, .checkout-form h2 {
+    margin-top: 0;
+}
+
+.paypal-button, .pay-button {
+    background-color: #ffc439;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.paypal-button {
+    background-color: #ffc439;
+}
+
+.pay-button {
+    background-color: #0070ba;
+    color: white;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+.order-summary {
+    padding: 20px;
+    border-left: 1px solid #ccc;
+}
+
+.order-summary h2 {
+    margin-top: 0;
+}
+
+.order-summary div {
+    margin-bottom: 10px;
+}
+
+.product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-details {
+    flex-grow: 1;
+}
