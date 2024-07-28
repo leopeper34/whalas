@@ -10,6 +10,11 @@ body {
   overflow-x: hidden; /* Evita el desbordamiento horizontal */
 }
 
+html, body {
+  width: 100%; /* Asegura que no haya desbordamiento horizontal */
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+
 /* Sección del slider */
 .slider, .slider2, .slider3 {
   width: 100vw; /* Ajusta el ancho al 100% de la vista */
@@ -211,6 +216,7 @@ body {
     transition: left 0.3s ease;
     z-index: 10;
     padding-top: 20px;
+    overflow-y: auto; /* Permite el desbordamiento vertical */
   }
 
   .menu.active {
@@ -266,7 +272,7 @@ body {
 }
 
 .product-info {
-  width: 50%;
+  width: 100%;
   padding: 20px;
   box-sizing: border-box;
 }
