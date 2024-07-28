@@ -73,9 +73,10 @@ body {
   opacity: 1;
 }
 
-.navbar .search-container img {
-  width: 25px;
-  height: 25px;
+.navbar .search-container img,
+.carrito img {
+  width: 26px;
+  height: 26px;
   cursor: pointer;
 }
 
@@ -83,12 +84,6 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
-}
-
-.carrito img {
-  width: 25px;
-  height: 25px;
-  color: #EFF0F5;
 }
 
 .carrito h2 {
@@ -100,6 +95,9 @@ body {
 /* Iconos del menú y cerrar menú */
 .menu-icon, .close-icon {
   display: none;
+  font-size: 26px;
+  color: #EFF0F5;
+  cursor: pointer;
 }
 
 /* Estilos del submenú */
@@ -134,30 +132,17 @@ body {
 /* Ajustes para la versión móvil */
 @media screen and (max-width: 768px) {
   .navbar {
-    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
   }
 
   .menu-icon {
     display: block;
-    cursor: pointer;
-  }
-
-  .menu-icon img {
-    width: 30px;
-    height: 30px;
   }
 
   .logo {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-    text-align: center;
-  }
-
-  .logo img {
-    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .menu {
@@ -178,15 +163,10 @@ body {
   }
 
   .close-icon {
-    display: flex;
-    justify-content: flex-end;
+    display: block;
+    text-align: right;
     padding-right: 20px;
-    cursor: pointer;
-  }
-
-  .close-icon img {
-    width: 25px;
-    height: 25px;
+    font-size: 30px;
   }
 
   .menu a {
@@ -216,6 +196,7 @@ body {
     overflow: hidden;
   }
 }
+
 
 /* Sección del slider */
 .slider, .slider2, .slider3 {
