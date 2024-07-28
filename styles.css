@@ -385,7 +385,8 @@ body {
 
 .hero img {
   width: 100%;
-  height: 80vh;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero .hero-text {
@@ -427,6 +428,7 @@ body {
     flex-direction: row; /* En escritorio, disposición horizontal */
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
+    
   }
 
   .description3 {
