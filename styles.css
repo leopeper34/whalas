@@ -133,6 +133,7 @@ body {
 @media screen and (max-width: 768px) {
   .navbar {
     justify-content: space-between;
+    padding: 40px;
   }
 
   .menu-icon {
