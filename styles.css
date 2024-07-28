@@ -387,6 +387,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: zoomEffect 10s infinite; /* Añadir animación de zoom */
 }
 
 .hero .hero-text {
@@ -414,6 +415,26 @@ body {
 .hero .buttonn:hover {
   background-color: #0E1B4D;
 }
+
+/* Media query para pantallas móviles */
+@media (max-width: 768px) {
+  .hero {
+    height: 40vh; /* Hacer la imagen más corta */
+  }
+
+  .hero img {
+    object-fit: cover; /* Ajustar la imagen para que sea más horizontal */
+  }
+}
+
+/* Animación de zoom en su posición */
+@keyframes zoomEffect {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.05); }
+  50% { transform: scale(1.1); }
+  75% { transform: scale(1.05); }
+}
+
 
 /* Flex Container */
 .flex-container {
