@@ -49,7 +49,6 @@ function initPayPalButton(totalAmount) {
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(details) {
                 alert('Pago completado por ' + details.payer.name.given_name);
-                // Aquí puedes redirigir a una página de confirmación o actualizar el estado del pedido
             });
         },
         onError: function(err) {
