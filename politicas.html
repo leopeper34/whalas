@@ -57,41 +57,41 @@
     </div>
   
     <div class="navbar">
-      <div class="menu-icon" onclick="toggleMenu()">
-          <img src="ima/barra-de-menu.png" alt="Menu Icon">
-      </div>
-      <div class="logo">
-          <a href="index.html">
-              <img src="ima/logo.png" alt="Logo">
-          </a>
-      </div>
-      
-      <div class="menu" id="menu">
-          <div class="close-icon" onclick="toggleMenu()">
-              <img src="ima/cerrar.png" alt="Close Icon">
-          </div>
-          <a href="index.html">Home</a>
-          <div class="submenu">
-              <a href="#" onclick="toggleSubmenu(event)">Nuestros productos</a>
-              <div class="submenu-content" id="submenu-content">
-                  <a href="whalas.html">Pijama Whalas</a>
-                  <a href="catalogo.html">Merch</a>
-              </div>
-          </div>
-          <a href="contacto.html">Contacto</a>
-          <a href="sb.html">Sobre Nosotros</a>
-      </div>
-      <div class="search-cart-container">
-          <div class="search-container">
-              <input type="text" id="search" placeholder="Buscar...">
-              <img src="ima/bus.png" alt="Buscar" id="search-icon">
-          </div>
-          <div class="carrito">
-              <img src="ima/car3.png" alt="Carrito de compras" id="carrito-icon">
-              <h2 id="carrito-total"></h2>
-          </div>
-      </div>
-  </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- Icono de hamburguesa -->
+        </div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="ima/logo.png" alt="Logo">
+            </a>
+        </div>
+        
+        <div class="menu" id="menu">
+            <div class="close-icon" onclick="toggleMenu()">
+                &times; <!-- Icono de cerrar -->
+            </div>
+            <a href="index.html">Inicio</a>
+            <div class="submenu">
+                <a href="#" onclick="toggleSubmenu(event)">Nuestros productos</a>
+                <div class="submenu-content" id="submenu-content">
+                    <a href="whalas.html">Pijama Whalas</a>
+                    <a href="catalogo.html">Merch</a>
+                </div>
+            </div>
+            <a href="contacto.html">Contacto</a>
+            <a href="sb.html">Sobre Nosotros</a>
+        </div>
+        <div class="search-cart-container">
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Buscar..." oninput="buscarProducto()">
+                <img src="ima/bus.png" alt="Buscar" id="search-icon" onclick="toggleSearch()">
+            </div>
+            <div class="carrito" onclick="abrirModal()">
+                <img src="ima/car3.png" alt="Carrito de compras" id="carrito-icon">
+                <h2 id="carrito-total"></h2>
+            </div>
+        </div>
+    </div>
 
     <div class="accordion">
     <div class="accordion-item">
