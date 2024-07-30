@@ -56,42 +56,73 @@
   </div>
 
     
-  <div class="navbar">
-    <div class="menu-icon" onclick="toggleMenu()">
-        &#9776; <!-- Icono de hamburguesa -->
-    </div>
-    <div class="logo">
-        <a href="index.html">
-            <img src="ima/logo.png" alt="Logo">
-        </a>
-    </div>
-    
-    <div class="menu" id="menu">
-        <div class="close-icon" onclick="toggleMenu()">
-            &times; <!-- Icono de cerrar -->
-        </div>
-        <a href="index.html">Inicio</a>
-        <div class="submenu">
-            <a href="#" onclick="toggleSubmenu(event)">Nuestros productos</a>
-            <div class="submenu-content" id="submenu-content">
-                <a href="whalas.html">Pijama Whalas</a>
-                <a href="catalogo.html">Merch</a>
-            </div>
-        </div>
-        <a href="contacto.html">Contacto</a>
-        <a href="sb.html">Sobre Nosotros</a>
-    </div>
-    <div class="search-cart-container">
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Buscar..." oninput="buscarProducto()">
-            <img src="ima/bus.png" alt="Buscar" id="search-icon" onclick="toggleSearch()">
-        </div>
-        <div class="carrito" onclick="abrirModal()">
-            <img src="ima/car3.png" alt="Carrito de compras" id="carrito-icon">
-            <h2 id="carrito-total"></h2>
-        </div>
-    </div>
-</div>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Inicio</title>
+      <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <div class="navbar">
+          <div class="menu-icon" onclick="toggleMenu()">
+              &#9776; <!-- Icono de hamburguesa -->
+          </div>
+          <div class="logo">
+              <a href="index.html">
+                  <img src="ima/logo.png" alt="Logo">
+              </a>
+          </div>
+          
+          <div class="menu" id="menu">
+              <div class="close-icon" onclick="toggleMenu()">
+                  &times; <!-- Icono de cerrar -->
+              </div>
+              <a href="index.html">Inicio</a>
+              <div class="submenu">
+                  <a href="#" onclick="toggleSubmenu(event)">Nuestros productos</a>
+                  <div class="submenu-content" id="submenu-content">
+                      <a href="whalas.html">Pijama Whalas</a>
+                      <a href="catalogo.html">Merch</a>
+                  </div>
+              </div>
+              <a href="contacto.html">Contacto</a>
+              <a href="sb.html">Sobre Nosotros</a>
+          </div>
+          <div class="search-cart-container">
+              <div class="search-container">
+                  <input type="text" id="search" placeholder="Buscar..." oninput="buscarProducto()">
+                  <img src="ima/bus.png" alt="Buscar" id="search-icon" onclick="toggleSearch()">
+              </div>
+              <div class="carrito" onclick="abrirModal()">
+                  <img src="ima/car3.png" alt="Carrito de compras" id="carrito-icon">
+                  <h2 id="carrito-total">0</h2>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Modal del carrito -->
+      <div id="carrito-modal" class="modal">
+          <div class="modal-header">
+              <h2 class="carrito-titulo">Carrito de Compras</h2>
+              <span class="modal-close" onclick="cerrarModal()">&times;</span>
+          </div>
+          <div class="modal-body">
+              <div id="carrito-vacio" class="carrito-vacio" style="display: none;">Tu carrito está vacío.</div>
+              <div id="carrito-productos"></div>
+              <div class="subtotal-container">
+                  <div class="subtotal-title">Subtotal:</div>
+                  <div id="subtotal" class="subtotal-amount">$0.00</div>
+              </div>
+              <button class="pagar-todo" onclick="pagar()">Pagar</button>
+          </div>
+      </div>
+  
+      <script src="scripts.js"></script>
+  </body>
+  </html>
+  
 
 
     
@@ -301,10 +332,10 @@
     </div>
     
     <!-- Modal -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption"></div>
+    <div id="myModalX" class="modalX">
+        <span class="closeX">&times;</span>
+        <img class="modal-contentX" id="img01X">
+        <div id="captionX"></div>
     </div>
     
     <footer class="footer">

@@ -5,25 +5,7 @@ const productos = [
     { nombre: "Playera #3", precio: 250, descripcion: "Descripción del Producto 4", imagen: "ima/tres.png" },
     { nombre: "Hoddie #1", precio: 350, descripcion: "Descripción del Producto 5", imagen: "ima/cua.png" }
 ];
-let carrito = [];
-
-function mostrarCatalogo() {
-    const catalogo = document.getElementById('catalogo');
-    catalogo.innerHTML = '';
-    productos.forEach((producto, index) => {
-        const productoDiv = document.createElement('div');
-        productoDiv.classList.add('producto');
-        productoDiv.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}">
-            <h2>${producto.nombre}</h2>
-            <p>${producto.descripcion}</p>
-            <p>$${producto.precio.toFixed(2)}</p>
-            <button onclick="agregarAlCarrito(${index})">Agregar al carrito</button>
-        `;
-        catalogo.appendChild(productoDiv);
-    });
-    document.getElementById('total-productos').textContent = `Total Productos: ${productos.length}`;
-}
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 function agregarAlCarrito(index) {
     const productoSeleccionado = productos[index];
@@ -36,11 +18,13 @@ function agregarAlCarrito(index) {
         carrito.push(productoSeleccionado);
     }
 
+    localStorage.setItem('carrito', JSON.stringify(carrito));
     actualizarCarrito();
 }
 
 function incrementarCantidad(index) {
     carrito[index].cantidad += 1;
+    localStorage.setItem('carrito', JSON.stringify(carrito));
     actualizarCarrito();
 }
 
@@ -50,11 +34,13 @@ function disminuirCantidad(index) {
     } else {
         alert("La cantidad no puede ser menor que 1.");
     }
+    localStorage.setItem('carrito', JSON.stringify(carrito));
     actualizarCarrito();
 }
 
 function eliminarDelCarrito(index) {
     carrito.splice(index, 1);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
     actualizarCarrito();
 }
 
@@ -107,7 +93,6 @@ function cerrarModal() {
     document.getElementById('carrito-modal').style.display = 'none';
 }
 
-
 function pagar() {
     if (carrito.length > 0) {
         const resumenPedido = {
@@ -120,6 +105,33 @@ function pagar() {
         alert('El carrito está vacío.');
     }
 }
+
+// Inicializar el carrito cuando se carga la página
+document.addEventListener('DOMContentLoaded', actualizarCarrito);
+
+// Mostrar productos en la página de catálogo
+function mostrarCatalogo() {
+    const catalogo = document.getElementById('catalogo');
+    catalogo.innerHTML = '';
+    productos.forEach((producto, index) => {
+        const productoDiv = document.createElement('div');
+        productoDiv.classList.add('producto');
+        productoDiv.innerHTML = `
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <h2>${producto.nombre}</h2>
+            <p>${producto.descripcion}</p>
+            <p>$${producto.precio.toFixed(2)}</p>
+            <button onclick="agregarAlCarrito(${index})">Agregar al carrito</button>
+        `;
+        catalogo.appendChild(productoDiv);
+    });
+}
+
+// Inicializar el catálogo cuando se carga la página de catálogo
+if (document.getElementById('catalogo')) {
+    document.addEventListener('DOMContentLoaded', mostrarCatalogo);
+}
+
 
 function buscarProducto() {
     const searchTerm = document.getElementById('search').value.toLowerCase();
