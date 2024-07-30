@@ -206,8 +206,8 @@ body {
   right: 0;
   width: 25%;
   height: 100%;
-  background-color: white;
-  box-shadow: -5px 0 15px rgba(255, 255, 255, 0.5);
+  background-color: #EFF0F5;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, .5);
   padding: 20px;
   border-radius: 10px 0 0 10px;
   overflow-y: auto;
@@ -244,7 +244,7 @@ body {
 
 .producto-precio {
   font-size: 1.375rem;
-  color: #FF5733;
+  color: #0E1B4D;
 }
 
 .total-pagar {
@@ -276,7 +276,7 @@ body {
   width: 100%;
   max-width: 100px;
   padding: 10px 0;
-  background-color: #FFFFFF;
+  background-color: #EFF0F5;
   border: 2px solid #0E1B4D;
   border-radius: 25px;
   font-size: 16px;
@@ -287,9 +287,9 @@ body {
 
 .eliminar-producto {
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 1.65rem;
   color: #FF0000;
-  margin-left: 10px;
+  margin-left: -46px;
 }
 
 .subtotal-container {
@@ -327,21 +327,7 @@ body {
 }
 /* Media Queries para hacer responsive */
 @media (max-width: 480px) {
-  .producto {
-    flex: 1 1 100%; /* Aumenta el tamaño a 100% del contenedor */
-    max-width: 100%; /* Aumenta el tamaño a 100% del contenedor */
-    padding: 20px; /* Ajusta el padding si es necesario */
-    margin: 10px 0; /* Ajusta el margen si es necesario */
-  }
 
-  .producto h2, .producto p {
-    font-size: 1rem; /* Aumenta el tamaño de fuente */
-  }
-
-  .producto button {
-    font-size: .8rem; /* Ajusta el tamaño de fuente del botón */
-    padding: 12px 0; /* Ajusta el padding del botón */
-  }
 
   .modal {
     width: 100%; /* Asegura que la modal ocupe el 100% del ancho */
@@ -349,23 +335,12 @@ body {
 }
 
 @media (max-width: 768px) {
-  .producto {
-    flex: 1 1 45%; /* Aumenta el tamaño a 45% del contenedor */
-    max-width: 45%; /* Aumenta el tamaño a 45% del contenedor */
-  }
+
 
   .modal {
     width: 75%; /* Asegura que la modal ocupe el 75% del ancho */
   }
 }
-
-@media (min-width: 769px) {
-  .producto {
-    flex: 1 1 22%; /* Mantiene el tamaño actual */
-    max-width: 23%; /* Mantiene el tamaño actual */
-  }
-}
-
 
 /* Sección del slider */
 .slider, .slider2, .slider3 {
