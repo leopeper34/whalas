@@ -325,7 +325,46 @@ body {
   align-items: center;
   justify-content: center;
 }
+/* Media Queries para hacer responsive */
+@media (max-width: 480px) {
+  .producto {
+    flex: 1 1 100%; /* Aumenta el tamaño a 100% del contenedor */
+    max-width: 100%; /* Aumenta el tamaño a 100% del contenedor */
+    padding: 20px; /* Ajusta el padding si es necesario */
+    margin: 10px 0; /* Ajusta el margen si es necesario */
+  }
 
+  .producto h2, .producto p {
+    font-size: 1rem; /* Aumenta el tamaño de fuente */
+  }
+
+  .producto button {
+    font-size: .8rem; /* Ajusta el tamaño de fuente del botón */
+    padding: 12px 0; /* Ajusta el padding del botón */
+  }
+
+  .modal {
+    width: 100%; /* Asegura que la modal ocupe el 100% del ancho */
+  }
+}
+
+@media (max-width: 768px) {
+  .producto {
+    flex: 1 1 45%; /* Aumenta el tamaño a 45% del contenedor */
+    max-width: 45%; /* Aumenta el tamaño a 45% del contenedor */
+  }
+
+  .modal {
+    width: 75%; /* Asegura que la modal ocupe el 75% del ancho */
+  }
+}
+
+@media (min-width: 769px) {
+  .producto {
+    flex: 1 1 22%; /* Mantiene el tamaño actual */
+    max-width: 23%; /* Mantiene el tamaño actual */
+  }
+}
 
 
 /* Sección del slider */
