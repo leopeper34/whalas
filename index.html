@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whalas Catálogo de Productos</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
     <div class="slider">
@@ -104,28 +106,28 @@
   
       <!-- Modal del carrito -->
       <div id="carrito-modal" class="modal">
-          <div class="modal-header">
-              <h2 class="carrito-titulo">Carrito de Compras</h2>
-              <span class="modal-close" onclick="cerrarModal()">&times;</span>
-          </div>
-          <div class="modal-body">
-              <div id="carrito-vacio" class="carrito-vacio" style="display: none;">Tu carrito está vacío.</div>
-              <div id="carrito-productos"></div>
-              <div class="subtotal-container">
-                  <div class="subtotal-title">Subtotal:</div>
-                  <div id="subtotal" class="subtotal-amount">$0.00</div>
-              </div>
-              <button class="pagar-todo" onclick="pagar()">Pagar</button>
-          </div>
-      </div>
-  
-      <script src="scripts.js"></script>
-  </body>
-  </html>
-  
+        <div class="modal-header">
+            <h2 class="carrito-titulo">Tu carrito</h2>
+            <span class="modal-close" onclick="cerrarModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div id="carrito-vacio" class="carrito-vacio" style="display: none;">Tu carrito está vacío.</div>
+            <div class="product-price-header">
+                <div class="header-producto">Producto</div>
+                <div class="header-precio">Total</div>
+            </div>
+            <hr class="divider">
+            <div id="carrito-productos"></div>
+            <hr class="divider">
+            <div class="subtotal-container">
+                <div class="subtotal-title">Total estimado</div>
+                <div id="subtotal" class="subtotal-amount">$0.00</div>
+            </div>
+            <p class="impuestos">Impuestos, descuentos y envío calculados en la pantalla de pago.</p>
+            <button class="pagar-todo" onclick="pagar()">Pagar pedido</button>
+        </div>
+    </div>
 
-
-    
 
 <div class="hero">
     <img src="ima/ima2.jpg" alt="Ballenas">
@@ -199,25 +201,18 @@
         </div>
       </div>
     
-      <div class="flex-container">
-        <div class="description3">
-          <p>Como el conocido pijama de tiburón, pero renovado. Whalas es un pijama de orca para toda la familia.</p>
-        </div>
+      <div class="gallery">
+        <img src="ima/ima3.png" alt="Imagen 1" class="rounded-image">
+        <img src="ima/ima5.png" alt="Imagen 2" class="rounded-image">
+        <img src="ima/ima1 (2).png" alt="Imagen 3" class="rounded-image">
+    </div>
+
+    <div class="description3">
+        <p>Como el conocido pijama de tiburón, pero renovado. Whalas es un pijama de orca para toda la familia.</p>
+        <a href="#" class="button">Ver Pijama</a>
+    </div>
+
         
-        <div class="gallery-slider">
-          <button class="prev">&lt;</button>
-          <div class="gallery-slide">
-            <img src="ima/ima3.png" alt="Imagen 1" class="rounded-image">
-          </div>
-          <div class="gallery-slide">
-            <img src="ima/ima5.png" alt="Imagen 2" class="rounded-image">
-          </div>
-          <div class="gallery-slide">
-            <img src="ima/ima1 (2).png" alt="Imagen 3" class="rounded-image">
-          </div>
-          <button class="next">&gt;</button>
-        </div>
-      </div>
       
 
     <div class="container2">
@@ -334,7 +329,7 @@
     <!-- Modal -->
     <div id="myModalX" class="modalX">
         <span class="closeX">&times;</span>
-        <img class="modal-contentX" id="img01X">
+        <img class="modalX-contentX" id="img01X">
         <div id="captionX"></div>
     </div>
     

@@ -308,7 +308,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
 
@@ -320,7 +319,6 @@ body {
 
 .modal-body {
   padding: 20px;
-  text-align: center;
 }
 
 .carrito-vacio {
@@ -364,16 +362,20 @@ body {
 }
 
 .pagar-todo {
-  width: 100%;
-  max-width: 100px;
-  padding: 10px 0;
-  background-color: #EFF0F5;
-  border: 2px solid #0E1B4D;
+  background-color: #0E1B4D;
+  color: #EFF0F5;
+  padding: 10px 20px;
   border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  color: #0E1B4D;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
   margin: 40px auto;
+}
+
+.pagar-todo:hover {
+  background-color: #000000;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  color: #EFF0F5;
 }
 
 .eliminar-producto {
@@ -391,10 +393,74 @@ body {
   padding: 0 20px;
 }
 
-.subtotal-title, .subtotal-amount {
+.subtotal-title{
+  font-size: 1.2rem;
+  color: #0E1B4D;
+  font-weight: 600;
+}
+.subtotal-amount {
+  font-size: 1.2rem;
+  color: #0E1B4D;
+}
+
+.cantidad-controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid #0E1B4D;
+  border-radius: 25px;
+  padding: 5px;
+  max-width: 80px;
+  margin: 20px auto;
+}
+
+.cantidad-controles button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #0E1B4D;
+  font-size: 1rem;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cantidad-controles span {
   font-size: 1rem;
   color: #0E1B4D;
 }
+
+.product-price-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.header-producto, .header-precio {
+  font-size: 1rem;
+  color: #0E1B4D;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.impuestos {
+  font-size: 0.875rem;
+  color: #0E1B4D;
+  text-align: center;
+  margin-top: 10px;
+}
+
+
 
 .hero {
   position: relative;
@@ -605,26 +671,6 @@ slide-text3, slide-text2, slide-text {
   }
 }
 /* Estilos para los controles de cantidad en el carrito */
-.cantidad-controles {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
 
-.cantidad-controles button {
-  padding: 2px 6px;
-  background-color: #EFF0F5;
-  border: 1px solid #0E1B4D;
-  border-radius: 25px;
-  cursor: pointer;
-  color: #0E1B4D;
-  font-size: 0.875rem;
-  line-height: 1;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 

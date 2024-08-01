@@ -93,6 +93,29 @@
     </div>
 </div>
 
+<div id="carrito-modal" class="modal">
+    <div class="modal-header">
+        <h2 class="carrito-titulo">Tu carrito</h2>
+        <span class="modal-close" onclick="cerrarModal()">&times;</span>
+    </div>
+    <div class="modal-body">
+        <div id="carrito-vacio" class="carrito-vacio" style="display: none;">Tu carrito está vacío.</div>
+        <div class="product-price-header">
+            <div class="header-producto">Producto</div>
+            <div class="header-precio">Total</div>
+        </div>
+        <hr class="divider">
+        <div id="carrito-productos"></div>
+        <hr class="divider">
+        <div class="subtotal-container">
+            <div class="subtotal-title">Total estimado</div>
+            <div id="subtotal" class="subtotal-amount">$0.00</div>
+        </div>
+        <p class="impuestos">Impuestos, descuentos y envío calculados en la pantalla de pago.</p>
+        <button class="pagar-todo" onclick="pagar()">Pagar pedido</button>
+    </div>
+</div>
+
   <div class="container1">
     <div class="product-slider">
       <div class="product-image" id="product-image">
@@ -177,10 +200,11 @@
     </div>
   </div>
 
-      <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-      </div>
+  <div id="myModal" class="modal-custom">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+</div>
+
       
       <div class="slider2">
         <div class="slide-track2">

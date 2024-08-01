@@ -217,7 +217,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
 
@@ -229,7 +228,6 @@ body {
 
 .modal-body {
   padding: 20px;
-  text-align: center;
 }
 
 .carrito-vacio {
@@ -273,16 +271,20 @@ body {
 }
 
 .pagar-todo {
-  width: 100%;
-  max-width: 100px;
-  padding: 10px 0;
-  background-color: #EFF0F5;
-  border: 2px solid #0E1B4D;
+  background-color: #0E1B4D;
+  color: #EFF0F5;
+  padding: 10px 20px;
   border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  color: #0E1B4D;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
   margin: 40px auto;
+}
+
+.pagar-todo:hover {
+  background-color: #000000;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  color: #EFF0F5;
 }
 
 .eliminar-producto {
@@ -300,24 +302,34 @@ body {
   padding: 0 20px;
 }
 
-.subtotal-title, .subtotal-amount {
-  font-size: 1rem;
+.subtotal-title{
+  font-size: 1.2rem;
+  color: #0E1B4D;
+  font-weight: 600;
+}
+.subtotal-amount {
+  font-size: 1.2rem;
   color: #0E1B4D;
 }
+
 .cantidad-controles {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
+  border: 1px solid #0E1B4D;
+  border-radius: 25px;
+  padding: 5px;
+  max-width: 80px;
+  margin: 20px auto;
 }
 
 .cantidad-controles button {
-  padding: 2px 6px;
-  background-color: #EFF0F5;
-  border: 1px solid #0E1B4D;
-  border-radius: 25px;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   color: #0E1B4D;
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1;
   width: 24px;
   height: 24px;
@@ -325,22 +337,52 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.cantidad-controles span {
+  font-size: 1rem;
+  color: #0E1B4D;
+}
+
+.product-price-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.header-producto, .header-precio {
+  font-size: 1rem;
+  color: #0E1B4D;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.impuestos {
+  font-size: 0.875rem;
+  color: #0E1B4D;
+  text-align: center;
+  margin-top: 10px;
+}
+
 /* Media Queries para hacer responsive */
 @media (max-width: 480px) {
-
-
   .modal {
     width: 100%; /* Asegura que la modal ocupe el 100% del ancho */
   }
 }
 
 @media (max-width: 768px) {
-
-
   .modal {
     width: 75%; /* Asegura que la modal ocupe el 75% del ancho */
   }
 }
+
+
 
 /* Sección del slider */
 .slider, .slider2, .slider3 {
@@ -561,99 +603,27 @@ body {
 }
 
 
-/* Flex Container */
-.flex-container {
+/*****************************
+   GALERIA 3 IMAGENES
+*****************************/
+.gallery {
   display: flex;
-  flex-direction: column; /* En móviles, disposición vertical */
-  align-items: center;
-  margin-top: 20px;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 50px;
 }
 
-@media (min-width: 768px) {
-  .flex-container {
-    flex-direction: row; /* En escritorio, disposición horizontal */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    
-  }
-
-  .description3 {
-    width: 40%;
-    padding: 20px;
-    text-align: left; /* Alinear texto a la izquierda en escritorio */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra verticalmente la descripción y el botón */
-  }
-
-  .gallery-slider {
-    width: 50%;
-  }
+.gallery img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 25%;
 }
 
-/* Gallery */
-.gallery-slider {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  text-align: center;
-}
-
-.gallery-slide-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
-}
-
-.gallery-slide {
-  min-width: 100%;
-  box-sizing: border-box;
-  display: none; /* Oculta todas las imágenes inicialmente */
-}
-
-.gallery-slide.active {
-  display: block; /* Solo muestra la imagen activa */
-}
-
-.gallery-slide img {
-  width: 80%;
-  max-width: 500px; /* Ajusta este valor según tus necesidades */
-  height: auto;
-  border-radius: 25px;
-  margin: 0 auto;
-}
-
-/* Arrows */
-button.prev, button.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1;
-}
-
-button.prev {
-  left: 300px;
-}
-
-button.next {
-  right: 300px;
-}
-
-/* Description */
 .description3 {
   text-align: center;
-  padding: 20px;
-}
-
-.description3 p {
-  font-size: 1rem;
-  line-height: 1.5;
+  margin-top: 20px;
+  color: #0E1B4D;
 }
 
 .button {
@@ -673,24 +643,6 @@ button.next {
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
   color: #EFF0F5;
 }
-
-@media (max-width: 767px) {
-  .flex-container {
-    flex-direction: column; /* En móviles, disposición vertical */
-    align-items: center;
-  }
-
-  .gallery-slider {
-    order: 1; /* Asegura que la galería esté antes de la descripción */
-  }
-
-  .description3 {
-    order: 2; /* Asegura que la descripción esté después de la galería */
-    width: 100%; /* Asegura que la descripción ocupe todo el ancho disponible */
-    text-align: center; /* Centra la descripción y el botón */
-  }
-}
-
 
 /*****************************
      PRODUCTO
@@ -816,14 +768,14 @@ button.next {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modal-contentX {
+.modalX-contentX {
   margin: auto;
   display: block;
   width: 80%;
   max-width: 700px;
 }
 
-.modal-contentX:hover {
+.modalX-contentX:hover {
   cursor: zoom-in;
 }
 
