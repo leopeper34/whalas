@@ -193,3 +193,116 @@ function toggleMenu() {
   const menu = document.getElementById('menu');
   menu.classList.toggle('active');
 }
+function buscarProducto() {
+  const searchInput = document.getElementById('search');
+  const searchResults = document.getElementById('search-results');
+  const searchTerm = searchInput.value.toLowerCase();
+
+  // Filtrar productos que coincidan con el término de búsqueda
+  const filteredProducts = productos.filter(product => 
+    product.nombre.toLowerCase().includes(searchTerm)
+  );
+
+  // Limpiar resultados de búsqueda anteriores
+  searchResults.innerHTML = '';
+
+  if (filteredProducts.length > 0) {
+    filteredProducts.forEach(product => {
+      const resultItem = document.createElement('div');
+      resultItem.classList.add('result-item');
+      resultItem.innerHTML = `
+        <img src="${product.imagen}" alt="${product.nombre}">
+        <div>
+          <h4>${product.nombre}</h4>
+          <p>${product.descripcion}</p>
+          <p>$${product.precio}</p>
+        </div>
+      `;
+      searchResults.appendChild(resultItem);
+    });
+    searchResults.style.display = 'block';
+  } else {
+    searchResults.style.display = 'none';
+  }
+}
+
+// Función para abrir/cerrar la barra de búsqueda en dispositivos móviles
+function toggleSearch() {
+  const searchInput = document.getElementById('search');
+  searchInput.classList.toggle('active');
+}
+document.addEventListener('DOMContentLoaded', function () {
+  const searchIcon = document.getElementById('search-icon');
+  const searchInput = document.getElementById('search');
+
+  searchIcon.addEventListener('click', function () {
+    searchInput.classList.toggle('active');
+    if (searchInput.classList.contains('active')) {
+      searchInput.focus();
+    } else {
+      searchInput.blur();
+      searchInput.value = ''; // Clear the input when closing
+    }
+  });
+
+  // Optionally, close the search input when clicking outside of it
+  document.addEventListener('click', function (event) {
+    if (!searchIcon.contains(event.target) && !searchInput.contains(event.target)) {
+      searchInput.classList.remove('active');
+      searchInput.blur();
+      searchInput.value = ''; // Clear the input when closing
+    }
+  });
+});
+function buscarProducto() {
+  const searchInput = document.getElementById('search');
+  const searchResults = document.getElementById('search-results');
+  const searchTerm = searchInput.value.toLowerCase();
+
+  // Limpiar resultados de búsqueda anteriores
+  searchResults.innerHTML = '';
+
+  if (searchTerm === '') {
+    searchResults.style.display = 'none';
+    return;
+  }
+
+  // Filtrar productos que coincidan con el término de búsqueda
+  const filteredProducts = productos.filter(product => 
+    product.nombre.toLowerCase().includes(searchTerm)
+  );
+
+  if (filteredProducts.length > 0) {
+    filteredProducts.forEach(product => {
+      const resultItem = document.createElement('div');
+      resultItem.classList.add('result-item');
+      resultItem.innerHTML = `
+        <img src="${product.imagen}" alt="${product.nombre}">
+        <div>
+          <h4>${product.nombre}</h4>
+          <p>${product.descripcion}</p>
+          <p>$${product.precio}</p>
+        </div>
+      `;
+      searchResults.appendChild(resultItem);
+    });
+    searchResults.style.display = 'block';
+  } else {
+    searchResults.style.display = 'none';
+  }
+}
+
+// Función para abrir/cerrar la barra de búsqueda en dispositivos móviles
+function toggleSearch() {
+  const searchInput = document.getElementById('search');
+  const searchResults = document.getElementById('search-results');
+  const isHidden = searchInput.classList.toggle('hidden');
+
+  if (isHidden) {
+    searchInput.value = '';
+    searchResults.classList.add('hidden');
+    searchResults.innerHTML = '';
+  } else {
+    searchResults.classList.remove('hidden');
+  }
+}

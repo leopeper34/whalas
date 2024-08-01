@@ -60,16 +60,6 @@
     </div>
   </div>
 
-    
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Inicio</title>
-      <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
       <div class="navbar">
           <div class="menu-icon" onclick="toggleMenu()">
               &#9776; <!-- Icono de hamburguesa -->
@@ -96,10 +86,12 @@
               <a href="sb.html">Sobre Nosotros</a>
           </div>
           <div class="search-cart-container">
-              <div class="search-container">
-                  <input type="text" id="search" placeholder="Buscar..." oninput="buscarProducto()">
-                  <img src="ima/bus.png" alt="Buscar" id="search-icon" onclick="toggleSearch()">
-              </div>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Búsqueda..." oninput="buscarProducto()">
+                <img src="ima/bus.png" alt="Buscar" id="search-icon" onclick="toggleSearch()">
+                <img src="ima/close.png" alt="Cerrar" id="close-icon" onclick="toggleSearch()" class="hidden">
+                <div id="search-results" class="search-results"></div>
+            </div>
               <div class="carrito" onclick="abrirModal()">
                   <img src="ima/car3.png" alt="Carrito de compras" id="carrito-icon">
                   <h2 id="carrito-total">0</h2>
