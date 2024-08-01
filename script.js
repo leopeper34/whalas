@@ -131,7 +131,31 @@ function mostrarCatalogo() {
 if (document.getElementById('catalogo')) {
   document.addEventListener('DOMContentLoaded', mostrarCatalogo);
 }
+let currentSlide = 0;
 
+function showSlide(index) {
+    const slides = document.querySelectorAll('.carousel-item');
+    const totalSlides = slides.length;
+
+    if (index >= totalSlides) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+    } else {
+        currentSlide = index;
+    }
+
+    const carousel = document.querySelector('.carousel');
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
 const productImages = document.querySelectorAll(".product-thumb");
 const productImage = document.querySelector("#product-image img");
 
@@ -163,24 +187,8 @@ function showSlides() {
 
 setInterval(showSlides, 3000); // Change image every 3 seconds
 
-// Obtener los elementos del modal
-var modal = document.getElementById('myModal');
-var modalImg = document.getElementById('img01');
-var captionText = document.getElementById('caption');
 
-// Obtener la imagen y agregar el evento de clic
-var img = document.querySelector('.product-image img');
-img.onclick = function() {
-  modal.style.display = 'block';
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-};
 
-// Obtener el botón de cerrar
-var span = document.getElementsByClassName('close')[0];
-span.onclick = function() { 
-  modal.style.display = 'none';
-};
 function toggleMenu() {
   const menu = document.getElementById('menu');
   menu.classList.toggle('active');
