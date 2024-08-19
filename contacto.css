@@ -401,7 +401,32 @@ body {
   text-align: center;
   margin-top: 10px;
 }
+.carrito-vacio {
+  text-align: center;
+  padding: 20px;
+}
 
+.carrito-vacio-texto {
+  font-size: 1.5rem;
+  color: #0E1B4D;
+  margin-bottom: 20px;
+}
+
+.ir-catalogo {
+  background-color: #0E1B4D;
+  color: #EFF0F5;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.ir-catalogo:hover {
+  background-color: #000000;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  color: #EFF0F5;
+}
 /* Media Queries para hacer responsive */
 @media (max-width: 480px) {
   .modal {

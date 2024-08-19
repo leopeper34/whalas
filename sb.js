@@ -50,6 +50,7 @@ function actualizarCarrito() {
   const carritoVacio = document.getElementById('carrito-vacio');
   const subtotal = document.getElementById('subtotal');
   const botonPagar = document.querySelector('.pagar-todo');
+  const carritoConProductos = document.getElementById('carrito-con-productos');
   
   carritoTotal.textContent = carrito.length;
   carritoProductos.innerHTML = '';
@@ -59,16 +60,17 @@ function actualizarCarrito() {
       productoDiv.classList.add('modal-producto');
       productoDiv.innerHTML = `
           <img src="${producto.imagen}" alt="${producto.nombre}">
-          <div>
-              <h2 class="producto-nombre">${producto.nombre}</h2>
-              <p class="producto-precio">$${producto.precio.toFixed(2)} x ${producto.cantidad}</p>
-              <div class="cantidad-controles">
-                  <button onclick="disminuirCantidad(${index})">-</button>
-                  <span>${producto.cantidad}</span>
-                  <button onclick="incrementarCantidad(${index})">+</button>
-              </div>
-              <span class="eliminar-producto" onclick="eliminarDelCarrito(${index})">&times;</span>
-          </div>
+        <div>
+            <h2 class="producto-nombre">${producto.nombre}</h2>
+            <p class="producto-precio">$${producto.precio.toFixed(2)} x ${producto.cantidad}</p>
+            <p class="producto-tamaño">Tamaño: ${producto.tamaño}</p> <!-- Aquí se muestra el tamaño -->
+            <div class="cantidad-controles">
+                <button onclick="disminuirCantidad(${index})">-</button>
+                <span>${producto.cantidad}</span>
+                <button onclick="incrementarCantidad(${index})">+</button>
+            </div>
+            <span class="eliminar-producto" onclick="eliminarDelCarrito(${index})">&times;</span>
+        </div>
       `;
       carritoProductos.appendChild(productoDiv);
       subtotalAmount += producto.precio * producto.cantidad;
@@ -76,11 +78,13 @@ function actualizarCarrito() {
   subtotal.textContent = `$${subtotalAmount.toFixed(2)}`;
   
   if (carrito.length === 0) {
-      carritoVacio.style.display = 'block';
-      botonPagar.style.display = 'none';
-  } else {
-      carritoVacio.style.display = 'none';
-      botonPagar.style.display = 'block';
+    carritoVacio.style.display = 'block';
+    carritoConProductos.style.display = 'none';
+    botonPagar.style.display = 'none';
+} else {
+    carritoVacio.style.display = 'none';
+    carritoConProductos.style.display = 'block';
+    botonPagar.style.display = 'block';
   }
 }
 

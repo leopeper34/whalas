@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pijama De Ballena™</title>
+  <link rel="icon" href="ima/favicon.ico" type="image/x-icon">
+    <!-- Alternativa para dispositivos Apple -->
+    <link rel="apple-touch-icon" href="ima/favicon.ico">
+    <!-- Alternativa para dispositivos Android -->
+    <link rel="icon" sizes="192x192" href="ima/favicon.ico">
   <link rel="stylesheet" href="whalas.css">
 </head>
 <body>
@@ -99,22 +104,28 @@
         <span class="modal-close" onclick="cerrarModal()">&times;</span>
     </div>
     <div class="modal-body">
-        <div id="carrito-vacio" class="carrito-vacio" style="display: none;">Tu carrito está vacío.</div>
-        <div class="product-price-header">
-            <div class="header-producto">Producto</div>
-            <div class="header-precio">Total</div>
+        <div id="carrito-vacio" class="carrito-vacio" style="display: none;">
+            <p class="carrito-vacio-texto">CARRITO VACIO</p>
+            <button class="ir-catalogo" onclick="window.location.href='catalogo.html'">Ir al Catálogo</button>
         </div>
-        <hr class="divider">
-        <div id="carrito-productos"></div>
-        <hr class="divider">
-        <div class="subtotal-container">
-            <div class="subtotal-title">Total estimado</div>
-            <div id="subtotal" class="subtotal-amount">$0.00</div>
+        <div id="carrito-con-productos">
+            <div class="product-price-header">
+                <div class="header-producto">Producto</div>
+                <div class="header-precio">Total</div>
+            </div>
+            <hr class="divider">
+            <div id="carrito-productos"></div>
+            <hr class="divider">
+            <div class="subtotal-container">
+                <div class="subtotal-title">Total estimado</div>
+                <div id="subtotal" class="subtotal-amount">$0.00</div>
+            </div>
+            <p class="impuestos">Impuestos, descuentos y envío calculados en la pantalla de pago.</p>
+            <button class="pagar-todo" onclick="pagar()">Pagar pedido</button>
         </div>
-        <p class="impuestos">Impuestos, descuentos y envío calculados en la pantalla de pago.</p>
-        <button class="pagar-todo" onclick="pagar()">Pagar pedido</button>
     </div>
 </div>
+
 
   <div class="container1">
     <div class="product-slider">
@@ -144,7 +155,8 @@
         <label for="quantity">Cantidad:</label>
         <div id="quantity-buttons">
           <button class="quantity-button minus">-</button>
-          <input type="number" id="quantity" value="1" min="1">
+          <input type="number" id="quantity-{productId}" value="1" min="1">
+
           <button class="quantity-button plus">+</button>
         </div>
       </div>

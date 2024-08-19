@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="${producto.imagen}" alt="${producto.nombre}" class="product-image">
                 <div class="product-details">
                     <p>${producto.nombre} - ${producto.cantidad} x $${producto.precio.toFixed(2)}</p>
+                    <p>Tamaño: ${producto.tamaño}</p>
                 </div>
             `;
             totalAmount += producto.cantidad * producto.precio;
