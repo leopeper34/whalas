@@ -5,6 +5,7 @@ const productos = [
   { nombre: "Playera #3", precio: 250, descripcion: "Descripción del Producto 4", imagen: "ima/tres.png" },
   { nombre: "Hoddie #1", precio: 350, descripcion: "Descripción del Producto 5", imagen: "ima/cua.png" }
 ];
+
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 function agregarAlCarrito(index) {
@@ -298,6 +299,7 @@ function buscarProducto() {
   }
 }
 
+
 // Función para abrir/cerrar la barra de búsqueda en dispositivos móviles
 function toggleSearch() {
   const searchInput = document.getElementById('search');
@@ -308,7 +310,8 @@ function toggleSearch() {
     searchInput.value = '';
     searchResults.classList.add('hidden');
     searchResults.innerHTML = '';
+    searchResults.style.display = 'none';  // Asegúrate de ocultarlo
   } else {
-    searchResults.classList.remove('hidden');
+    searchResults.style.display = 'none';  // También asegúrate de que no se muestre al abrir la búsqueda
   }
 }

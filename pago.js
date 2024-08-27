@@ -57,3 +57,4 @@ function initPayPalButton(totalAmount) {
         }
     }).render('#paypal-button-container');
 }
+
