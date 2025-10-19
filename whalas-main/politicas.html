@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acordeón con Flechas</title>
+  <link rel="icon" href="ima/favicon.ico" type="image/x-icon">
+    <!-- Alternativa para dispositivos Apple -->
+    <link rel="apple-touch-icon" href="ima/favicon.ico">
+    <!-- Alternativa para dispositivos Android -->
+    <link rel="icon" sizes="192x192" href="ima/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="politicas.css"> <!-- Asegúrate de enlazar correctamente tu archivo CSS -->
+</head>
+<body>
+    <div class="slider">
+        <div class="slide-track">
+            <div class="slide">
+                <p class="slide-text">🐳Whalas™🐳</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">25% este verano!</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">🐳Whalas™🐳</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">25% este verano!</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">🐳Whalas™🐳</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">25% este verano!</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">🐳Whalas™🐳</p>
+            </div>
+    
+            <div class="slide">
+                <p class="slide-text">25% este verano!</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">🐳Whalas™🐳</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">25% este verano!</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">🐳Whalas™🐳</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">25% este verano!</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">🐳Whalas™🐳</p>
+            </div>
+            <div class="slide">
+                <p class="slide-text">25% este verano!</p>
+            </div>
+        </div>
+    </div>
+  
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776; <!-- Icono de hamburguesa -->
+        </div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="ima/logo.png" alt="Logo">
+            </a>
+        </div>
+        
+        <div class="menu" id="menu">
+            <div class="close-icon" onclick="toggleMenu()">
+                &times; <!-- Icono de cerrar -->
+            </div>
+            <a href="index.html">Inicio</a>
+            <div class="submenu">
+                <a href="#" onclick="toggleSubmenu(event)">Nuestros productos</a>
+                <div class="submenu-content" id="submenu-content">
+                    <a href="whalas.html">Pijama Whalas</a>
+                    <a href="catalogo.html">Merch</a>
+                </div>
+            </div>
+            <a href="contacto.html">Contacto</a>
+            <a href="sb.html">Sobre Nosotros</a>
+        </div>
+        <div class="search-cart-container">
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Buscar..." oninput="buscarProducto()">
+                <img src="ima/bus.png" alt="Buscar" id="search-icon" onclick="toggleSearch()">
+            </div>
+            <div class="carrito" onclick="abrirModal()">
+                <img src="ima/car3.png" alt="Carrito de compras" id="carrito-icon">
+                <h2 id="carrito-total"></h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="carrito-modal" class="modal">
+        <div class="modal-header">
+            <h2 class="carrito-titulo">Tu carrito</h2>
+            <span class="modal-close" onclick="cerrarModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div id="carrito-vacio" class="carrito-vacio" style="display: none;">
+                <p class="carrito-vacio-texto">CARRITO VACIO</p>
+                <button class="ir-catalogo" onclick="window.location.href='catalogo.html'">Ir al Catálogo</button>
+            </div>
+            <div id="carrito-con-productos">
+                <div class="product-price-header">
+                    <div class="header-producto">Producto</div>
+                    <div class="header-precio">Total</div>
+                </div>
+                <hr class="divider">
+                <div id="carrito-productos"></div>
+                <hr class="divider">
+                <div class="subtotal-container">
+                    <div class="subtotal-title">Total estimado</div>
+                    <div id="subtotal" class="subtotal-amount">$0.00</div>
+                </div>
+                <p class="impuestos">Impuestos, descuentos y envío calculados en la pantalla de pago.</p>
+                <button class="pagar-todo" onclick="pagar()">Pagar pedido</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="accordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" aria-expanded="false">
+          <span>POLÍTICA DE PRIVACIDAD</span>
+          <i class="fas fa-chevron-down float-right"></i>
+        </button>
+      </h2>
+      <div class="accordion-content">
+        <p style="font-size: 18px; font-weight: bold;">1. Introducción</p>
+
+        <p>Bienvenido a Whale Blankie ("nosotros", "nuestro" o "nos"). Esta Política de Privacidad rige cómo recopilamos, utilizamos, divulgamos y protegemos la información personal obtenida de los usuarios ("usted" o "usuarios") de nuestro sitio web.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">2. Información que recopilamos</p>
+            
+        <p>Podemos recopilar información personal como su nombre, dirección de correo electrónico, dirección postal, número de teléfono y detalles de pago cuando interactúa con nuestro sitio web, crea una cuenta, realiza un pedido o se suscribe a nuestro boletín.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">3. Cómo utilizamos su información</p>
+            
+        <p>Utilizamos la información recopilada para los siguientes fines:
+            <p></p>- Para procesar y cumplir con sus pedidos
+            <p></p>- Para brindar atención al cliente
+            <p></p>- Para enviar correos electrónicos y actualizaciones periódicas
+            <p></p>- Para personalizar su experiencia de compra
+            <p>- Para mejorar nuestro sitio web y nuestros servicios</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">4 Cómo protegemos su información</p>
+            
+        <p>Tomamos las medidas adecuadas para proteger su información personal contra el acceso no autorizado, la alteración, la divulgación o la destrucción. Utilizamos técnicas de cifrado estándar de la industria y servidores seguros para proteger sus datos.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">5. Divulgación a terceros</p>
+            
+        <p>No vendemos, comercializamos ni transferimos su información personal a terceros a menos que le proporcionemos un aviso previo. Sin embargo, esto no incluye a los terceros de confianza que nos ayudan a operar nuestro sitio web, realizar negocios o brindar servicios, siempre y cuando acepten mantener su información confidencial.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">6. Cookies</p>
+            
+        <p>Utilizamos cookies y tecnologías similares para mejorar su experiencia de compra en nuestro sitio web. Puede optar por desactivar las cookies a través de la configuración de su navegador, pero esto puede afectar algunas funciones de nuestro sitio.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">7. Enlaces de terceros</p>
+            
+        <p>Ocasionalmente, podemos incluir u ofrecer productos o servicios de terceros en nuestro sitio web. Estos sitios de terceros tienen políticas de privacidad separadas e independientes. No tenemos ninguna responsabilidad por el contenido y las actividades de estos sitios vinculados.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">8. Protección de la privacidad en línea de los niños</p>
+            
+        <p>Nuestro sitio web no está destinado a niños menores de 13 años. No recopilamos conscientemente información personal de niños menores de 13 años. Si cree que hemos recopilado inadvertidamente información personal de un niño menor de 13 años, comuníquese con nosotros de inmediato.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">9. Cambios a esta Política de Privacidad</p>
+            
+        <p>Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento. Cualquier cambio entrará en vigor inmediatamente después de la publicación de la política actualizada en nuestro sitio web.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">10. Contáctenos</p>
+
+        <p>Si tiene alguna pregunta o inquietud con respecto a esta Política de Privacidad, <b>contáctenos en shopezmx23@gmail.com</b> . Al utilizar nuestro sitio web, usted acepta los términos de esta Política de Privacidad.</p>
+      
+    </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" aria-expanded="false">
+          <span>TÉRMINOS DE SERVICIO</span>
+          <i class="fas fa-chevron-down float-right"></i>
+        </button>
+      </h2>
+      <div class="accordion-content">
+        <p style="font-size: 18px; font-weight: bold;">Última actualización: 4 de julio de 2024</p>
+
+        <p>Bienvenido a WHALAS. Estos Términos de Servicio ("Términos") rigen el uso de nuestro sitio web y la compra de nuestros productos, en particular nuestras pijamas de ballenas. Al acceder a nuestro sitio web y realizar una compra, usted acepta cumplir con estos Términos. Si no está de acuerdo con alguno de estos términos, no utilice nuestro sitio web ni compre nuestros productos.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">1. Uso del Sitio Web</p>
+            
+        <p>1.1 Usted acepta usar nuestro sitio web de manera que no interfiera con su funcionamiento y que cumpla con todas las leyes aplicables.</p>
+        <p>1.2 No está permitido el uso de nuestro sitio web para cualquier propósito ilegal o no autorizado.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">2. Registro y Cuenta</p>
+            
+        <p>2.1 Para realizar una compra, puede que se le solicite crear una cuenta proporcionando información personal precisa y completa.</p>
+        <p>2.2 Usted es responsable de mantener la confidencialidad de su cuenta y contraseña y acepta la responsabilidad por todas las actividades que ocurran bajo su cuenta.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">3. Productos</p>
+            
+        <p>3.1 Descripción de los Productos: Nos esforzamos por describir nuestros productos con precisión. Sin embargo, no garantizamos que las descripciones sean completamente exactas, completas o libres de errores.</p>
+        <p>3.2 Disponibilidad: Todos los productos están sujetos a disponibilidad. Nos reservamos el derecho de limitar la cantidad de cualquier producto que ofrecemos.</p>    
+            
+        <p style="font-size: 18px; font-weight: bold;">4. Precios y Pagos</p>
+            
+        <p>4.1 Precios: Los precios de los productos se muestran en el sitio web y están sujetos a cambios sin previo aviso.</p>
+        <p>4.2 Pagos: Aceptamos varios métodos de pago, incluyendo tarjetas de crédito y débito. Al realizar una compra, usted acepta pagar el precio total de los productos solicitados.</p>
+        
+        <p style="font-size: 18px; font-weight: bold;">5. Envío y Entrega</p>
+            
+        <p>5.1 Procesamiento de Pedidos: Nos esforzamos por procesar y enviar los pedidos de manera oportuna. Los tiempos de entrega pueden variar según su ubicación y la disponibilidad del producto.</p>
+        <p>5.2 Gastos de Envío: Los gastos de envío se calculan y se muestran al momento de la compra.</p>
+        <p>5.3 Riesgo de Pérdida: Todos los productos comprados se envían según un contrato de envío. Esto significa que el riesgo de pérdida y el título de los productos pasan a usted después de la entrega al transportista.</p>  
+        
+        <p style="font-size: 18px; font-weight: bold;">6. Devoluciones y Reembolsos</p>
+            
+        <p>6.1 Política de Devoluciones: Aceptamos devoluciones dentro de los 30 días posteriores a la entrega si el producto está en su estado original. Por favor, consulte nuestra Política de Devoluciones para más detalles.</p>
+        <p>6.2 Procesamiento de Reembolsos: Los reembolsos se procesarán utilizando el mismo método de pago que se utilizó para la compra original.</p>    
+
+        <p style="font-size: 18px; font-weight: bold;">7. Propiedad Intelectual</p>
+            
+        <p>7.1 Todos los contenidos de nuestro sitio web, incluidos textos, gráficos, logotipos, imágenes y software, son propiedad de WHALAS y están protegidos por las leyes de propiedad intelectual.</p>
+        <p>7.2 No se permite la reproducción, distribución o uso no autorizado de cualquier contenido de nuestro sitio web sin nuestro consentimiento expreso por escrito.</p>   
+        
+        <p style="font-size: 18px; font-weight: bold;">8. Limitación de Responsabilidad</p>
+
+        <p>8.1 WHALAS no será responsable por ningún daño indirecto, incidental, especial o consecuente que resulte del uso o la incapacidad de usar nuestros productos o nuestro sitio web.</p>
+        <p>8.2 En ningún caso, nuestra responsabilidad total hacia usted por todos los daños, pérdidas y causas de acción excederá la cantidad que usted pagó por los productos comprados a través de nuestro sitio web.</p>
+    
+        <p style="font-size: 18px; font-weight: bold;">9. Ley Aplicable</p>
+
+        <p>9.1 Estos Términos se regirán e interpretarán de acuerdo con las leyes del país en el que se encuentra nuestra empresa, sin tener en cuenta sus disposiciones sobre conflicto de leyes.</p>
+
+        <p style="font-size: 18px; font-weight: bold;">10. Cambios a los Términos de Servicio</p>
+
+        <p>10.1 Nos reservamos el derecho de modificar estos Términos en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en nuestro sitio web.</p>
+        <p>10.2 Es su responsabilidad revisar periódicamente estos Términos para estar al tanto de cualquier cambio. El uso continuo de nuestro sitio web constituye su aceptación de dichos cambios.</p>
+
+        <p style="font-size: 18px; font-weight: bold;">11. Contacto</p>
+
+        <p>11.1 Si tiene alguna pregunta sobre estos Términos, por favor contáctenos en:</p>
+        <p>Correo Electrónico: support@whalas.com</p>
+        <p>Al utilizar nuestro sitio web y comprar nuestros productos, usted acepta estos Términos de Servicio. Gracias por elegir WHALAS.</p>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" aria-expanded="false">
+          <span>POLÍTICA DE REEMBOLSOS</span>
+          <i class="fas fa-chevron-down float-right"></i>
+        </button>
+      </h2>
+      <div class="accordion-content">
+        <p style="font-size: 18px; font-weight: bold;">Última actualización: 4 de julio de 2024</p>
+
+        <p>En WHALAS, queremos que esté completamente satisfecho con su compra de nuestras pijamas de ballenas. Si por alguna razón no está completamente satisfecho, estamos aquí para ayudarlo con nuestra política de reembolsos y devoluciones.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">1. Devoluciones</p>
+            
+        <p>1.1 Tiene 30 días calendario para devolver un artículo a partir de la fecha en que lo recibió.</p>
+        <p>1.2 Para ser elegible para una devolución, su artículo debe estar sin usar y en las mismas condiciones en que lo recibió. También debe estar en el embalaje original.</p>
+        <p>1.3 Los artículos en oferta o comprados con descuento no son elegibles para devolución, salvo que presenten defectos de fabricación.</p>
+        
+        <p style="font-size: 18px; font-weight: bold;">2. Proceso de Devolución</p>
+            
+        <p>2.1 Para iniciar una devolución, debe contactarnos a través de nuestro correo electrónico support@whalas.com con el número de pedido y una descripción del motivo de la devolución.</p>
+        <p>2.2 Le proporcionaremos una etiqueta de devolución prepagada y las instrucciones sobre cómo y dónde enviar su paquete. Los artículos enviados de vuelta a nosotros sin haber solicitado previamente una devolución no serán aceptados.</p>
+            
+        <p style="font-size: 18px; font-weight: bold;">3. Reembolsos</p>
+            
+        <p>3.1 Una vez que recibamos su artículo devuelto, lo inspeccionaremos y le notificaremos que hemos recibido su devolución. También le notificaremos sobre la aprobación o rechazo de su reembolso.</p>
+        <p>3.2 Si su devolución es aprobada, procesaremos su reembolso a su método de pago original dentro de un período determinado de días, según las políticas del emisor de su tarjeta de crédito u otros métodos de pago.</p>    
+        
+        <p style="font-size: 18px; font-weight: bold;">4. Artículos no retornables</p>
+            
+        <p>4.1 Algunos artículos no se pueden devolver. Estos incluyen productos personalizados o productos íntimos como ropa interior que hayan sido usados.</p>
+        <p>4.2 Tarjetas de regalo no son retornables ni reembolsables.</p>
+        
+        <p style="font-size: 18px; font-weight: bold;">5. Cambios</p>
+            
+        <p>5.1 Solo reemplazamos artículos si están defectuosos o dañados. Si necesita cambiarlo por el mismo artículo, envíenos un correo electrónico a support@whalas.com y le proporcionaremos las instrucciones necesarias.</p>
+        <p>5.2 Para cambios debido a talla incorrecta o cambio de preferencia, el cliente será responsable de los gastos de envío de la devolución y del nuevo envío.</p>
+        
+        <p style="font-size: 18px; font-weight: bold;">6. Gastos de Envío</p>
+            
+        <p>6.1 Los gastos de envío originales no son reembolsables. Si recibe un reembolso, el costo del envío de devolución se deducirá de su reembolso.</p>
+        <p>6.2 En el caso de una devolución por un artículo defectuoso o error en el pedido por nuestra parte, los gastos de envío de la devolución correrán a nuestro cargo.</p> 
+        
+        <p style="font-size: 18px; font-weight: bold;">7. Reembolsos Tardíos o Faltantes</p>
+            
+        <p>7.1 Si aún no ha recibido un reembolso, primero verifique nuevamente su cuenta bancaria.</p>
+        <p>7.2 Luego, contacte a la compañía de su tarjeta de crédito, puede tomar algún tiempo antes de que su reembolso se publique oficialmente.</p>    
+        <p>7.3 Si ha hecho todo esto y aún no ha recibido su reembolso, por favor contáctenos a support@whalas.com.</p>
+
+        <p style="font-size: 18px; font-weight: bold;">8. Envío de Devoluciones</p>
+            
+        <p>8.1 Para devolver su producto, debe enviarlo por correo postal a la dirección que le proporcionaremos al iniciar el proceso de devolución.</p>
+        <p>8.2 Dependiendo de su lugar de residencia, el tiempo que puede tardar en llegar su producto intercambiado puede variar.</p>   
+        
+        <p style="font-size: 18px; font-weight: bold;">9. Contacto</p>
+
+        <p>9.1 Si tiene alguna pregunta sobre nuestra política de reembolsos y devoluciones, por favor contáctenos a través de:</p>
+        <p>Correo Electrónico: support@whalas.com</p>
+        <p>Gracias por comprar en WHALAS. Estamos comprometidos a ofrecerle productos de alta calidad y un servicio al cliente excepcional.</p>
+      
+        </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="footer-menu-container">
+        <h1>ENLACES RÁPIDOS</h1>
+        <ul class="footer-menu">
+            <li><a href="contacto.html">"Contacto"</a></li>
+            <li><a href="politicas.html">"Cuestiones legales"</a></li>
+            <li><a href="https://www.instagram.com/leozama21/" target="_blank">"Instagram"</a></li>
+        </ul>
+    </div>
+    <div class="payment-methods">
+        <img src="ima/pay.png" alt="Formas de pago">
+    </div>
+    <div class="footer-text">
+        Whalas™ 2024 @ todos los derechos reservados
+    </div>
+</footer>
+  
+<script src="politicas.js"></script> <!-- Asegúrate de enlazar correctamente tu archivo JavaScript -->
+</body>
+</html>

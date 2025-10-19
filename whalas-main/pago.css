@@ -1,0 +1,119 @@
+body {
+    font-family: 'Questrial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EFF0F5;
+    color: #0E1B4D;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 1200px;
+    width: 100%;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.checkout-form, .order-summary {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.checkout-form h1, .checkout-form h2 {
+    margin-top: 0;
+    text-align: center; /* Centra los títulos */
+}
+
+.paypal-button, .pay-button {
+    background-color: #ffc439;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pay-button {
+    background-color: #0070ba;
+    color: white;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+.order-summary {
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.order-summary h2 {
+    margin-top: 0;
+    text-align: center; /* Centra los títulos */
+}
+
+.order-summary div {
+    margin-bottom: 10px;
+}
+
+.product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-details {
+    flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .checkout-form, .order-summary {
+        width: 50%;
+    }
+
+    .order-summary {
+        padding: 20px;
+        border-left: 1px solid #ccc;
+        border-top: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column-reverse;
+    }
+}
