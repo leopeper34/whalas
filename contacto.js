@@ -1,142 +1,66 @@
-const productos = [
-    { nombre: "Whalas", precio: 150, descripcion: "Descripción del Producto 1", imagen: "ima/ba.png" },
-    { nombre: "Playera #1", precio: 200, descripcion: "Descripción del Producto 2", imagen: "ima/uno.png" },
-    { nombre: "Playera #2", precio: 300, descripcion: "Descripción del Producto 3", imagen: "ima/dos.png" },
-    { nombre: "Playera #3", precio: 250, descripcion: "Descripción del Producto 4", imagen: "ima/tres.png" },
-    { nombre: "Hoddie #1", precio: 350, descripcion: "Descripción del Producto 5", imagen: "ima/cua.png" }
-];
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+import { createClient } from 'https://esm.sh/@supabase/supabase-js'
 
-function agregarAlCarrito(index) {
-    const productoSeleccionado = productos[index];
-    const productoEnCarrito = carrito.find(item => item.nombre === productoSeleccionado.nombre);
+// 🔧 Reemplaza con tus datos reales:
+const SUPABASE_URL = 'https://fuuaqkmrwzzakucgyvjk.supabase.co'
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1dWFxa21yd3p6YWt1Y2d5dmprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4NjkwNDcsImV4cCI6MjA3NjQ0NTA0N30.8fwa2khn4-TjTJzC0ZqH-Hvox4X-nrM_Nu9veYEH09c'
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
-    if (productoEnCarrito) {
-        alert(`El producto "${productoSeleccionado.nombre}" ya está en el carrito.`);
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.contact-form')
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+
+    // Obtener los datos del formulario
+    const firstName = document.querySelector('#first-name').value
+    const lastName = document.querySelector('#last-name').value
+    const email = document.querySelector('#email').value
+    const orderNumber = document.querySelector('#order-number').value
+    const subject = document.querySelector('#subject').value
+    const message = document.querySelector('#message').value
+    const fileInput = document.querySelector('#file-upload')
+    let fileUrl = null
+
+    // Subir archivo (si hay)
+    if (fileInput.files.length > 0) {
+      const file = fileInput.files[0]
+      const filePath = `${Date.now()}_${file.name}`
+
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('contacto-archivos') // Nombre del bucket
+        .upload(filePath, file)
+
+      if (uploadError) {
+        alert('Error al subir archivo: ' + uploadError.message)
+        return
+      }
+
+      // Obtener URL pública
+      const { data } = supabase.storage.from('contacto-archivos').getPublicUrl(filePath)
+      fileUrl = data.publicUrl
+    }
+
+    // Insertar datos en la tabla
+    const { error: insertError } = await supabase
+      .from('contactos')
+      .insert([
+        {
+          first_name: firstName,
+          last_name: lastName,
+          email: email,
+          order_number: orderNumber || null,
+          subject: subject,
+          message: message,
+          file_url: fileUrl
+        }
+      ])
+
+    if (insertError) {
+      console.error(insertError)
+      alert('Hubo un error al enviar el formulario.')
     } else {
-        productoSeleccionado.cantidad = 1;
-        carrito.push(productoSeleccionado);
+      alert('Formulario enviado correctamente ✅')
+      form.reset()
     }
-
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    actualizarCarrito();
-}
-
-function incrementarCantidad(index) {
-    carrito[index].cantidad += 1;
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    actualizarCarrito();
-}
-
-function disminuirCantidad(index) {
-    if (carrito[index].cantidad > 1) {
-        carrito[index].cantidad -= 1;
-    } else {
-        alert("La cantidad no puede ser menor que 1.");
-    }
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    actualizarCarrito();
-}
-
-function eliminarDelCarrito(index) {
-    carrito.splice(index, 1);
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    actualizarCarrito();
-}
-
-function actualizarCarrito() {
-    const carritoTotal = document.getElementById('carrito-total');
-    const carritoProductos = document.getElementById('carrito-productos');
-    const carritoVacio = document.getElementById('carrito-vacio');
-    const subtotal = document.getElementById('subtotal');
-    const botonPagar = document.querySelector('.pagar-todo');
-    const carritoConProductos = document.getElementById('carrito-con-productos');
-    
-    carritoTotal.textContent = carrito.length;
-    carritoProductos.innerHTML = '';
-    let subtotalAmount = 0;
-    carrito.forEach((producto, index) => {
-        const productoDiv = document.createElement('div');
-        productoDiv.classList.add('modal-producto');
-        productoDiv.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}">
-        <div>
-            <h2 class="producto-nombre">${producto.nombre}</h2>
-            <p class="producto-precio">$${producto.precio.toFixed(2)} x ${producto.cantidad}</p>
-            <p class="producto-tamaño">Tamaño: ${producto.tamaño}</p> <!-- Aquí se muestra el tamaño -->
-            <div class="cantidad-controles">
-                <button onclick="disminuirCantidad(${index})">-</button>
-                <span>${producto.cantidad}</span>
-                <button onclick="incrementarCantidad(${index})">+</button>
-            </div>
-            <span class="eliminar-producto" onclick="eliminarDelCarrito(${index})">&times;</span>
-        </div>
-        `;
-        carritoProductos.appendChild(productoDiv);
-        subtotalAmount += producto.precio * producto.cantidad;
-    });
-    subtotal.textContent = `$${subtotalAmount.toFixed(2)}`;
-    
-    if (carrito.length === 0) {
-        carritoVacio.style.display = 'block';
-        carritoConProductos.style.display = 'none';
-        botonPagar.style.display = 'none';
-    } else {
-        carritoVacio.style.display = 'none';
-        carritoConProductos.style.display = 'block';
-        botonPagar.style.display = 'block';
-    }
-}
-
-function abrirModal() {
-    document.getElementById('carrito-modal').style.display = 'block';
-    actualizarCarrito(); // Asegurarse de que el carrito esté actualizado al abrir el modal
-}
-
-function cerrarModal() {
-    document.getElementById('carrito-modal').style.display = 'none';
-}
-
-function pagar() {
-    if (carrito.length > 0) {
-        const resumenPedido = {
-            productos: carrito,
-            subtotal: carrito.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0)
-        };
-        sessionStorage.setItem('resumenPedido', JSON.stringify(resumenPedido));
-        window.location.href = 'pago.html';
-    } else {
-        alert('El carrito está vacío.');
-    }
-}
-
-// Inicializar el carrito cuando se carga la página
-document.addEventListener('DOMContentLoaded', actualizarCarrito);
-
-// Mostrar productos en la página de catálogo
-function mostrarCatalogo() {
-    const catalogo = document.getElementById('catalogo');
-    catalogo.innerHTML = '';
-    productos.forEach((producto, index) => {
-        const productoDiv = document.createElement('div');
-        productoDiv.classList.add('producto');
-        productoDiv.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}">
-            <h2>${producto.nombre}</h2>
-            <p>${producto.descripcion}</p>
-            <p>$${producto.precio.toFixed(2)}</p>
-            <button onclick="agregarAlCarrito(${index})">Agregar al carrito</button>
-        `;
-        catalogo.appendChild(productoDiv);
-    });
-}
-
-// Inicializar el catálogo cuando se carga la página de catálogo
-if (document.getElementById('catalogo')) {
-    document.addEventListener('DOMContentLoaded', mostrarCatalogo);
-}
-
-function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.classList.toggle('active');
-    }
+  })
+})
