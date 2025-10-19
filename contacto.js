@@ -1,66 +1,71 @@
-import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+// Inicializar Supabase usando CDN
+const supabaseUrl = 'https://nbmlydcgylwpwgajfiet.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ibWx5ZGNneWx3cHdnYWpmaWV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4ODA5MjQsImV4cCI6MjA3NjQ1NjkyNH0.mj07GI4e7yqQumes1hcM17DBV5-dzT3Bid1__ZBQIHc' // reemplaza con tu anon key
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
 
-// 🔧 Reemplaza con tus datos reales:
-const SUPABASE_URL = 'https://fuuaqkmrwzzakucgyvjk.supabase.co'
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1dWFxa21yd3p6YWt1Y2d5dmprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4NjkwNDcsImV4cCI6MjA3NjQ0NTA0N30.8fwa2khn4-TjTJzC0ZqH-Hvox4X-nrM_Nu9veYEH09c'
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+const form = document.getElementById('contact-form')
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('.contact-form')
+form.addEventListener('submit', async (e) => {
+  e.preventDefault()
+  console.log('Formulario enviado') // depuración
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault()
+  // Obtener datos del formulario
+  const first_name = document.getElementById('first-name').value.trim()
+  const last_name = document.getElementById('last-name').value.trim()
+  const email = document.getElementById('email').value.trim()
+  const order_number = document.getElementById('order-number').value.trim()
+  const subject = document.getElementById('subject').value
+  const message = document.getElementById('message').value.trim()
+  const fileInput = document.getElementById('file-upload')
+  let file_url = null
 
-    // Obtener los datos del formulario
-    const firstName = document.querySelector('#first-name').value
-    const lastName = document.querySelector('#last-name').value
-    const email = document.querySelector('#email').value
-    const orderNumber = document.querySelector('#order-number').value
-    const subject = document.querySelector('#subject').value
-    const message = document.querySelector('#message').value
-    const fileInput = document.querySelector('#file-upload')
-    let fileUrl = null
-
-    // Subir archivo (si hay)
+  try {
+    // Subir archivo al bucket si hay
     if (fileInput.files.length > 0) {
       const file = fileInput.files[0]
-      const filePath = `${Date.now()}_${file.name}`
+      
+      // Sanear el nombre del archivo (sin espacios ni acentos)
+      const safeFileName = file.name
+        .replace(/\s/g, "_")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+      const fileName = `${Date.now()}_${safeFileName}`
 
-      const { data: uploadData, error: uploadError } = await supabase.storage
-        .from('contacto-archivos') // Nombre del bucket
-        .upload(filePath, file)
+      const { data: uploadData, error: uploadError } = await supabaseClient
+        .storage
+        .from('contact-files')
+        .upload(fileName, file)
 
-      if (uploadError) {
-        alert('Error al subir archivo: ' + uploadError.message)
-        return
-      }
+      if (uploadError) throw uploadError
 
       // Obtener URL pública
-      const { data } = supabase.storage.from('contacto-archivos').getPublicUrl(filePath)
-      fileUrl = data.publicUrl
+      const { data: publicData } = supabaseClient
+        .storage
+        .from('contact-files')
+        .getPublicUrl(fileName)
+      file_url = publicData.publicUrl
     }
 
-    // Insertar datos en la tabla
-    const { error: insertError } = await supabase
-      .from('contactos')
-      .insert([
-        {
-          first_name: firstName,
-          last_name: lastName,
-          email: email,
-          order_number: orderNumber || null,
-          subject: subject,
-          message: message,
-          file_url: fileUrl
-        }
-      ])
+    // Insertar datos en la tabla solo si la subida fue exitosa
+    const { data, error } = await supabaseClient
+      .from('contact_messages')
+      .insert([{
+        first_name,
+        last_name,
+        email,
+        order_number,
+        subject,
+        message,
+        file_url
+      }])
 
-    if (insertError) {
-      console.error(insertError)
-      alert('Hubo un error al enviar el formulario.')
-    } else {
-      alert('Formulario enviado correctamente ✅')
-      form.reset()
-    }
-  })
+    if (error) throw error
+
+    alert('✅ Mensaje enviado correctamente!')
+    form.reset()
+
+  } catch (err) {
+    console.error('Error al enviar mensaje:', err)
+    alert('❌ Ocurrió un error. Intente nuevamente.')
+  }
 })
